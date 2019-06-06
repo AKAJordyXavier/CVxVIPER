@@ -23,9 +23,10 @@ class MainPresenter: MainPresenterProtocol {
         interactor?.fetchUserInfo()
     }
     
-    func aboutMePressed() {
-        
+    func aboutMePressed(_ aboutMe: [AboutMe]) {
+        router?.pushAboutMe(forAboutMe: aboutMe)
     }
+    
 }
 
 

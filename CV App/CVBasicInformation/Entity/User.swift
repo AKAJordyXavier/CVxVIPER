@@ -19,6 +19,9 @@ class UserResponse: Codable{
 
 class UserInfo: Codable {
     let userName: String?
+    let age: String?
+    let cellphone: String?
+    let email: String?
     let imageURL: String?
     let linkedInURL: String?
 }

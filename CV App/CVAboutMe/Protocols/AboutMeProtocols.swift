@@ -11,15 +11,13 @@ import UIKit
 
 protocol AboutMeViewControllerProtocol: class{
     //Presenter -> View
-    func showUserInfo (with user: UserResult)
+    func showAboutMe (with aboutMe: [AboutMe])
     func showNetworkingError()
-    func createPulse()
-    func animatePulse(index: Int)
 }
 
 protocol AboutMePresenterProtocol{
     //View -> Presenter
-    var view: AboutMeViewControllerProtocol? { get set }
+     var view: AboutMeViewControllerProtocol? { get set }
     var interactor: AboutMeInputIntercatorProtocol? { get set }
     var router: AboutMeRouterProtocol? { get set }
     
@@ -41,5 +39,5 @@ protocol AboutMeOutputIntercatorProtocol{
 
 protocol AboutMeRouterProtocol{
     //Presenter -> Router
-    static func createModule(userRef: UserInfoViewController)
+    static func createModule(_ aboutMe: [AboutMe]) -> UIViewController
 }

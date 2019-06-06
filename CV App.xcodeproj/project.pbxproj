@@ -16,6 +16,10 @@
 		FC263F2D22A5993600E073F4 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC263F2C22A5993600E073F4 /* MainPresenter.swift */; };
 		FC263F2F22A5C74500E073F4 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC263F2E22A5C74500E073F4 /* ImageRequest.swift */; };
 		FC263F3122A5DE8900E073F4 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC263F3022A5DE8900E073F4 /* UserRouter.swift */; };
+		FC29BE1122A96D5200D1B760 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC29BE1022A96D5200D1B760 /* RootRouter.swift */; };
+		FC29BE1322A9A61400D1B760 /* AboutMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC29BE1222A9A61400D1B760 /* AboutMe.swift */; };
+		FC29BE1522A9A76100D1B760 /* AboutMeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC29BE1422A9A76100D1B760 /* AboutMeRouter.swift */; };
+		FC29BE1722A9A8C600D1B760 /* AboutMePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC29BE1622A9A8C600D1B760 /* AboutMePresenter.swift */; };
 		FC91FCCA22A1E8F900862929 /* MainProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC91FCC922A1E8F900862929 /* MainProtocols.swift */; };
 		FC9432D722A6E799007D427E /* AboutMeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9432D622A6E799007D427E /* AboutMeProtocols.swift */; };
 		FC9432D922A713A5007D427E /* CVAboutMe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC9432D822A713A5007D427E /* CVAboutMe.storyboard */; };
@@ -54,6 +58,10 @@
 		FC263F2C22A5993600E073F4 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		FC263F2E22A5C74500E073F4 /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
 		FC263F3022A5DE8900E073F4 /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
+		FC29BE1022A96D5200D1B760 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		FC29BE1222A9A61400D1B760 /* AboutMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMe.swift; sourceTree = "<group>"; };
+		FC29BE1422A9A76100D1B760 /* AboutMeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeRouter.swift; sourceTree = "<group>"; };
+		FC29BE1622A9A8C600D1B760 /* AboutMePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMePresenter.swift; sourceTree = "<group>"; };
 		FC91FCC922A1E8F900862929 /* MainProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainProtocols.swift; sourceTree = "<group>"; };
 		FC9432D622A6E799007D427E /* AboutMeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeProtocols.swift; sourceTree = "<group>"; };
 		FC9432D822A713A5007D427E /* CVAboutMe.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CVAboutMe.storyboard; sourceTree = "<group>"; };
@@ -215,6 +223,7 @@
 		FC9432D222A6E735007D427E /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				FC29BE1622A9A8C600D1B760 /* AboutMePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -222,6 +231,7 @@
 		FC9432D322A6E73B007D427E /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				FC29BE1222A9A61400D1B760 /* AboutMe.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -229,6 +239,7 @@
 		FC9432D422A6E749007D427E /* WireFrame */ = {
 			isa = PBXGroup;
 			children = (
+				FC29BE1422A9A76100D1B760 /* AboutMeRouter.swift */,
 			);
 			path = WireFrame;
 			sourceTree = "<group>";
@@ -270,6 +281,7 @@
 				FC263F0B22A566E900E073F4 /* CVBasicInformation */,
 				FC9432CF22A6E704007D427E /* CVAboutMe */,
 				FCECA4B822A1B2DA00B0C8DC /* AppDelegate.swift */,
+				FC29BE1022A96D5200D1B760 /* RootRouter.swift */,
 				FCECA4BF22A1B2DB00B0C8DC /* Assets.xcassets */,
 				FCECA4C422A1B2DB00B0C8DC /* Info.plist */,
 			);
@@ -427,10 +439,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC9432DB22A717C3007D427E /* CVAboutTableViewController.swift in Sources */,
+				FC29BE1322A9A61400D1B760 /* AboutMe.swift in Sources */,
 				FCECA4BB22A1B2DA00B0C8DC /* UserInfoViewController.swift in Sources */,
 				FCECA4B922A1B2DA00B0C8DC /* AppDelegate.swift in Sources */,
+				FC29BE1122A96D5200D1B760 /* RootRouter.swift in Sources */,
 				FC263F1122A5795400E073F4 /* User.swift in Sources */,
+				FC29BE1722A9A8C600D1B760 /* AboutMePresenter.swift in Sources */,
 				FC263F2D22A5993600E073F4 /* MainPresenter.swift in Sources */,
+				FC29BE1522A9A76100D1B760 /* AboutMeRouter.swift in Sources */,
 				FC91FCCA22A1E8F900862929 /* MainProtocols.swift in Sources */,
 				FC263F1422A57CB400E073F4 /* Request.swift in Sources */,
 				FC9432D722A6E799007D427E /* AboutMeProtocols.swift in Sources */,
