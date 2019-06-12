@@ -11,12 +11,12 @@ import UIKit
 
 class Constants{
     
-    public static let url = "https://gist.githubusercontent.com/JordyGlob/75db75d855f4805cbdc4fcf9ee8670db/raw/cc7a939cc8082191ea93f4f1aa866de6021ee850/UserInfo"
+    public static let url = Bundle.main.object(forInfoDictionaryKey: "URLRequest") as! String
     
     struct StoryboardNames {
         static let cvInformation = "UserInfoViewController"
         static let cvAboutMe = "CVAboutTableViewController"
-        static let cvMyCareer = "cvMyCareer"
-        static let cvMyAchivements = "VenueDetail"
+        static let cvMyCareer = "MyCareerTableViewController"
+        static let cvMyAchivements = "AchivementsTableViewController"
     }
 }

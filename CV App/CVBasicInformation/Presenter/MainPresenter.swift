@@ -23,13 +23,18 @@ class MainPresenter: MainPresenterProtocol {
         interactor?.fetchUserInfo()
     }
     
-    func aboutMePressed(_ aboutMe: [AboutMe]) {
-        router?.pushAboutMe(forAboutMe: aboutMe)
+    func aboutMePressed() {
+        router?.pushAboutMe()
     }
     
+    func myCareerPressed() {
+        router?.pushMyCareer()
+    }
+    
+    func achivementsPressed() {
+        router?.pushAchivements()
+    }    
 }
-
-
 
 extension MainPresenter: MainOutputIntercatorProtocol{
     func userFeteched(user: UserResult) {

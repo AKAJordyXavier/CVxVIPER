@@ -9,15 +9,28 @@
 import UIKit
 
 class AboutMePresenter: AboutMePresenterProtocol{
+    
     weak var view: AboutMeViewControllerProtocol?
     var interactor: AboutMeInputIntercatorProtocol?
     var router: AboutMeRouterProtocol?
-    
-    var aboutMe = [AboutMe]()
+    var aboutMe: AboutMeResult?
     
     func viewDidLoad() {
+        self.updateView()
+    }
+    
+    func updateView() {
+        interactor?.fetchAboutMe()
+    }
+    
+}
+
+extension AboutMePresenter: AboutMeOutputIntercatorProtocol{
+    func aboutMeFeteched(aboutMe: AboutMeResult) {
         view?.showAboutMe(with: aboutMe)
     }
     
-    
+    func userFetchFailed() {
+        view?.showNetworkingError()
+    }
 }

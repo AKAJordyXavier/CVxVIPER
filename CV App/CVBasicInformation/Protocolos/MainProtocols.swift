@@ -24,7 +24,9 @@ protocol MainPresenterProtocol{
     var router: MainRouterProtocol? { get set }
     
     func viewDidLoad()
-    func aboutMePressed(_ aboutMe: [AboutMe])
+    func aboutMePressed()
+    func myCareerPressed()
+    func achivementsPressed()
 }
 
 protocol MainInputIntercatorProtocol{
@@ -42,6 +44,8 @@ protocol MainOutputIntercatorProtocol{
 
 protocol MainRouterProtocol{
     //Presenter -> Router
-    func pushAboutMe(forAboutMe aboutMe: [AboutMe])
+    func pushAboutMe()
+    func pushMyCareer()
+    func pushAchivements()
     static func createModule() -> UIViewController
 }

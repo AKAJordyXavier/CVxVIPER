@@ -61,7 +61,6 @@ class Request {
         }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        print(request)
         URLSession.shared.dataTask(with: request) { data, reponse, error  in
             guard error == nil else{
                 completionHandler(.failure(.netWorkError)) // Network error case
