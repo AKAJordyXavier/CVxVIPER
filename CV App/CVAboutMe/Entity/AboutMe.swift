@@ -1,23 +1,80 @@
-//
-//  AboutMe.swift
-//  CV App
-//
-//  Created by Jordy Xavier Pazaran Reyes on 6/6/19.
-//  Copyright © 2019 Jordy Xavier Pazaran Reyes. All rights reserved.
-//
-
 import Foundation
 
-class AboutMeResult: Codable{
-    let response: AboutMeResponse
+// MARK: - AboutMeResult
+class AboutMeResult: Codable {
+    let response: Response
+    
+    init(response: Response) {
+        self.response = response
+    }
 }
 
-class AboutMeResponse: Codable{
-    let userInfo: AboutMe
+// MARK: - Response
+class Response: Codable {
+    let aboutMe: AboutMe
+    
+    enum CodingKeys: String, CodingKey {
+        case aboutMe = "AboutMe"
+    }
+    
+    init(aboutMe: AboutMe) {
+        self.aboutMe = aboutMe
+    }
 }
 
+// MARK: - AboutMe
 class AboutMe: Codable {
-    let userName: String?
-    let imageURL: String?
-    let linkedInURL: String?
+    let about: About
+    let hobbies: Hobbies
+    let review: Review
+    let sections: Int
+    
+    init(about: About, hobbies: Hobbies, review: Review, sections: Int) {
+        self.about = about
+        self.hobbies = hobbies
+        self.review = review
+        self.sections = sections
+    }
+}
+
+// MARK: - About
+class About: Codable {
+    let titleSection, achivements: String
+    let rowsInSection: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case titleSection
+        case achivements = "Achivements"
+        case rowsInSection
+    }
+    
+    init(titleSection: String, achivements: String, rowsInSection: Int) {
+        self.titleSection = titleSection
+        self.achivements = achivements
+        self.rowsInSection = rowsInSection
+    }
+}
+
+// MARK: - Hobbies
+class Hobbies: Codable {
+    let titleSection, text: String
+    let rowsInSection: Int
+    
+    init(titleSection: String, text: String, rowsInSection: Int) {
+        self.titleSection = titleSection
+        self.text = text
+        self.rowsInSection = rowsInSection
+    }
+}
+
+// MARK: - Review
+class Review: Codable {
+    let titleSection, resume: String
+    let rowsInSection: Int
+    
+    init(titleSection: String, resume: String, rowsInSection: Int) {
+        self.titleSection = titleSection
+        self.resume = resume
+        self.rowsInSection = rowsInSection
+    }
 }

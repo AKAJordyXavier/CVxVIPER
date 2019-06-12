@@ -11,13 +11,13 @@ import UIKit
 
 protocol AboutMeViewControllerProtocol: class{
     //Presenter -> View
-    func showAboutMe (with aboutMe: [AboutMe])
+    func showAboutMe (with aboutMe:  AboutMeResult)
     func showNetworkingError()
 }
 
 protocol AboutMePresenterProtocol{
     //View -> Presenter
-     var view: AboutMeViewControllerProtocol? { get set }
+    var view: AboutMeViewControllerProtocol? { get set }
     var interactor: AboutMeInputIntercatorProtocol? { get set }
     var router: AboutMeRouterProtocol? { get set }
     
@@ -27,17 +27,17 @@ protocol AboutMePresenterProtocol{
 protocol AboutMeInputIntercatorProtocol{
     //Presenter -> Interactor
     var presenter: AboutMeOutputIntercatorProtocol? { get set }
-    func fetchUserInfo ()
+    func fetchAboutMe ()
     
 }
 
 protocol AboutMeOutputIntercatorProtocol{
     //Interactor -> Presenter
-    func userFeteched(user: UserResult)
+    func aboutMeFeteched(aboutMe: AboutMeResult)
     func userFetchFailed()
 }
 
 protocol AboutMeRouterProtocol{
     //Presenter -> Router
-    static func createModule(_ aboutMe: [AboutMe]) -> UIViewController
+    static func createModule() -> UIViewController
 }

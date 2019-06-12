@@ -1,28 +1,29 @@
 //
-//  CVAboutTableViewController.swift
+//  AchivementsTableViewController.swift
 //  CV App
 //
-//  Created by Jordy Xavier Pazaran Reyes on 6/4/19.
+//  Created by Jordy Xavier Pazaran Reyes on 6/11/19.
 //  Copyright © 2019 Jordy Xavier Pazaran Reyes. All rights reserved.
 //
 
 import UIKit
 
-class CVAboutTableViewController: UITableViewController, AboutMeViewControllerProtocol {
+class AchivementsTableViewController: UITableViewController, AchivementsViewControllerProtocol {
     
-    var aboutMeList: AboutMeResult?
-    var presenter: AboutMePresenterProtocol?
+    var achivementsList: AchivementsResult?
+    var presenter: AchivementsPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
-        self.title = "AboutMe"
+        self.title = "Achivements"
         tableView.tableFooterView = UIView()
         presenter?.viewDidLoad()
+        
     }
     
-    func showAboutMe(with aboutMe: AboutMeResult) {
-        aboutMeList = aboutMe
+    func showAchivements(with achivements: AchivementsResult) {
+        achivementsList = achivements
         DispatchQueue.main.async { [weak self ] in
             self?.tableView.reloadData()
         }
@@ -36,42 +37,43 @@ class CVAboutTableViewController: UITableViewController, AboutMeViewControllerPr
     }
     
     // MARK: - Table view data source
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return aboutMeList?.response.aboutMe.sections ?? 0
+        return achivementsList?.achivementsResponse.achivements.sections ?? 0
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return aboutMeList?.response.aboutMe.about.rowsInSection ?? 0
+            return achivementsList?.achivementsResponse.achivements.courses.rowsInSection ?? 0
             
         case 1:
-            return aboutMeList?.response.aboutMe.hobbies.rowsInSection ?? 0
+            return achivementsList?.achivementsResponse.achivements.talks.rowsInSection ?? 0
             
         case 2:
-            return aboutMeList?.response.aboutMe.review.rowsInSection ?? 0
+            return achivementsList?.achivementsResponse.achivements.extras.rowsInSection ?? 0
             
         default:
             return 0
         }
+        
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0{
-            return aboutMeList?.response.aboutMe.about.titleSection
+            return achivementsList?.achivementsResponse.achivements.courses.titleSection
         }
         if section == 1{
-            return aboutMeList?.response.aboutMe.hobbies.titleSection
+            return achivementsList?.achivementsResponse.achivements.talks.titleSection
         }
         if section == 2{
-            return aboutMeList?.response.aboutMe.review.titleSection
+            return achivementsList?.achivementsResponse.achivements.extras.titleSection
         }
+        
         return "Nil"
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AboutMeTableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AchivementsTableViewCell", for: indexPath)
         
         return UITableViewCell()
     }
