@@ -10,12 +10,12 @@ import UIKit
 @testable import CV_App
 
 class MockMainView: UserInfoViewController{
-    private(set) var user: UserResult?
+   
     private(set) var showUserInfoCalled = 0
     private(set) var showUserInfoFailedCalled = 0
     
     override func showUserInfo(with user: UserResult) {
-        self.user = user
+        
         self.showUserInfoCalled += 1
     }
     

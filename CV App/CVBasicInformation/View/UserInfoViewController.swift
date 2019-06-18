@@ -74,9 +74,11 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
     }
     
     func showNetworkingError() {
+        let alertTitle = NSLocalizedString("Error", comment: "")
+        let alertMessage = NSLocalizedString("There was an error loading the information", comment: "")
         DispatchQueue.main.sync { [weak self] in
             self!.emptyStateView.isHidden = false
-            AlertView.instance.showAlert(title: "Error", message: "There was an error loading the information")
+            AlertView.instance.showAlert(title: alertTitle, message: alertMessage)
             self!.view.addSubview(AlertView.instance.parentView)
         }
     }

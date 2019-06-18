@@ -13,7 +13,8 @@ class MainInteractorTests: XCTestCase{
   
     func testFetchUserSuccess(){
         //given
-        let expectation = XCTestExpectation(description: NSLocalizedString("Fetch success", comment: "nil"))
+        let expectationText = NSLocalizedString("Fetch success", comment: "nil")
+        let expectation = XCTestExpectation(description: expectationText )
         // when
         Request.shared.request(Constants.Endpoints.userInfo, entity: UserResult.self, completionHandler: { fetchResult in
             switch fetchResult {
@@ -29,7 +30,8 @@ class MainInteractorTests: XCTestCase{
     
     func testFetchUserFailed(){
         //given
-        let expectation = XCTestExpectation(description: NSLocalizedString("Fetch success", comment: "nil"))
+        let expectationText = NSLocalizedString("Fetch failed", comment: "")
+        let expectation = XCTestExpectation(description: expectationText)
         // when
         Request.shared.request("nil", entity: UserResult.self, completionHandler: { fetchResult in
             switch fetchResult {

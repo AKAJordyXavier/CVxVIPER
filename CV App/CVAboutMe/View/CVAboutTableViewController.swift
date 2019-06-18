@@ -12,12 +12,12 @@ class CVAboutTableViewController: UITableViewController, AboutMeViewControllerPr
     //MARK: - Properties
     var aboutMeList: AboutMeResult?
     var presenter: AboutMePresenterProtocol?
-    
+    let titleView = NSLocalizedString("About me", comment: "")
     //MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
-        self.title = "AboutMe"
+        self.title = titleView
         tableView.tableFooterView = UIView()
         presenter?.viewDidLoad()
     }
@@ -30,8 +30,10 @@ class CVAboutTableViewController: UITableViewController, AboutMeViewControllerPr
     }
     //Method for display the generic alert
     func showNetworkingError() {
+        let alertTitle = NSLocalizedString("Error", comment: "")
+        let alertMessage = NSLocalizedString("There was an error loading the user information", comment: "")
         DispatchQueue.main.sync { [weak self] in
-            AlertView.instance.showAlert(title: "Error", message: "There was an error loading the information")
+            AlertView.instance.showAlert(title: alertTitle, message: alertMessage)
             self!.view.addSubview(AlertView.instance.parentView)
         }
     }
@@ -50,7 +52,7 @@ class CVAboutTableViewController: UITableViewController, AboutMeViewControllerPr
             return aboutMeList?.response.aboutMe.hobbies.rowsInSection ?? 0
             
         case 2:
-            return aboutMeList?.response.aboutMe.review.rowsInSection ?? 0
+            return aboutMeList?.response.aboutMe.skills.rowsInSection ?? 0
             
         default:
             return 0
@@ -65,7 +67,7 @@ class CVAboutTableViewController: UITableViewController, AboutMeViewControllerPr
             return aboutMeList?.response.aboutMe.hobbies.titleSection
         }
         if section == 2{
-            return aboutMeList?.response.aboutMe.review.titleSection
+            return aboutMeList?.response.aboutMe.skills.titleSection
         }
         return "Nil"
     }
@@ -73,13 +75,13 @@ class CVAboutTableViewController: UITableViewController, AboutMeViewControllerPr
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AboutMeTableViewCell", for: indexPath) as! AboutMeTableViewCell
         if indexPath.section == 0{
-            cell.textCellLabel.text = aboutMeList?.response.aboutMe.about.achivements
+            cell.textCellLabel.text = aboutMeList?.response.aboutMe.about.text
         }
         if indexPath.section == 1{
             cell.textCellLabel.text = aboutMeList?.response.aboutMe.hobbies.text
         }
         if indexPath.section == 2{
-            cell.textCellLabel.text = aboutMeList?.response.aboutMe.review.resume
+            cell.textCellLabel.text = aboutMeList?.response.aboutMe.skills.resume
         }
         return cell 
         

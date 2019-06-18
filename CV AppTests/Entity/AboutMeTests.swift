@@ -11,16 +11,16 @@ import XCTest
 class AboutMeTests: XCTestCase{
     
     func testUsrInfoSetGet(){
-        let aboutMe = AboutMeResult(response: Response(aboutMe: AboutMe(about: About(titleSection: "About Title", achivements: "Test achivements", rowsInSection: 2), hobbies: Hobbies(titleSection: "Hobbies Title", text: "Test text", rowsInSection: 2), review: Review(titleSection: "Review Title", resume: "Test Resume", rowsInSection: 2), sections: 3)))
+        let aboutMe = AboutMeResult(response: Response(aboutMe: AboutMe(about: About(titleSection: "About Title", text: "text", rowsInSection: 2), hobbies: About(titleSection: "Hobbies Title", text: "text", rowsInSection: 1), skills: Skills(titleSection: "Skills title", resume: "resume", rowsInSection: 3), sections: 3)))
         XCTAssertEqual(aboutMe.response.aboutMe.about.titleSection, "About Title")
-        XCTAssertEqual(aboutMe.response.aboutMe.about.achivements, "Test achivements")
+        XCTAssertEqual(aboutMe.response.aboutMe.about.text, "text")
         XCTAssertEqual(aboutMe.response.aboutMe.about.rowsInSection, 2)
         XCTAssertEqual(aboutMe.response.aboutMe.hobbies.titleSection, "Hobbies Title")
-        XCTAssertEqual(aboutMe.response.aboutMe.hobbies.text, "Test text")
-        XCTAssertEqual(aboutMe.response.aboutMe.hobbies.rowsInSection, 2)
-        XCTAssertEqual(aboutMe.response.aboutMe.review.titleSection, "Review Title")
-        XCTAssertEqual(aboutMe.response.aboutMe.review.resume, "Test Resume")
-        XCTAssertEqual(aboutMe.response.aboutMe.review.rowsInSection, 2)
+        XCTAssertEqual(aboutMe.response.aboutMe.hobbies.text, "text")
+        XCTAssertEqual(aboutMe.response.aboutMe.hobbies.rowsInSection, 1)
+        XCTAssertEqual(aboutMe.response.aboutMe.skills.titleSection, "Skills title")
+        XCTAssertEqual(aboutMe.response.aboutMe.skills.resume, "resume")
+        XCTAssertEqual(aboutMe.response.aboutMe.skills.rowsInSection, 3)
         XCTAssertEqual(aboutMe.response.aboutMe.sections, 3)
     }
 }

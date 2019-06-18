@@ -13,15 +13,14 @@ class AchivementsTableViewController: UITableViewController, AchivementsViewCont
     //MARK: - Properties
     var achivementsList: AchivementsResult?
     var presenter: AchivementsPresenterProtocol?
-    
+    let titleView = NSLocalizedString("Achivements", comment: "")
     //MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
-        self.title = "Achivements"
+        self.title = titleView
         tableView.tableFooterView = UIView()
         presenter?.viewDidLoad()
-        
     }
     
     func showAchivements(with achivements: AchivementsResult) {
@@ -33,8 +32,10 @@ class AchivementsTableViewController: UITableViewController, AchivementsViewCont
     
     //Methods for display the generic alert
     func showNetworkingError() {
+        let alertTitle = NSLocalizedString("Error", comment: "")
+        let alertMessage = NSLocalizedString("There was an error loading", comment: "")
         DispatchQueue.main.sync { [weak self] in
-            AlertView.instance.showAlert(title: "Error", message: "There was an error loading the information")
+            AlertView.instance.showAlert(title: alertTitle, message: alertMessage)
             self!.view.addSubview(AlertView.instance.parentView)
         }
     }
@@ -62,13 +63,13 @@ class AchivementsTableViewController: UITableViewController, AchivementsViewCont
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0{
+        if section == 0 {
             return achivementsList?.achivementsResponse.achivements.courses.titleSection
         }
-        if section == 1{
+        if section == 1 {
             return achivementsList?.achivementsResponse.achivements.talks.titleSection
         }
-        if section == 2{
+        if section == 2 {
             return achivementsList?.achivementsResponse.achivements.extras.titleSection
         }
         
@@ -77,13 +78,19 @@ class AchivementsTableViewController: UITableViewController, AchivementsViewCont
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AchivementsTableViewCell", for: indexPath) as! AchivementsTableViewCell
-        if indexPath.section == 0{
-            cell.textCellLabel.text = achivementsList?.achivementsResponse.achivements.courses.courses
+        if indexPath.section == 0 {
+            cell.textCellLabel.text = achivementsList?.achivementsResponse.achivements.courses.ciscoCCNA
         }
-        if indexPath.section == 1{
-            cell.textCellLabel.text = achivementsList?.achivementsResponse.achivements.talks.text
+        if indexPath.section == 1 {
+            
+            if indexPath.row == 0 {
+                 cell.textCellLabel.text = achivementsList?.achivementsResponse.achivements.talks.talk1
+            }
+            if indexPath.row == 1 {
+                 cell.textCellLabel.text = achivementsList?.achivementsResponse.achivements.talks.talk2
+            }
         }
-        if indexPath.section == 2{
+        if indexPath.section == 2 {
             cell.textCellLabel.text = achivementsList?.achivementsResponse.achivements.extras.resume
         }
         

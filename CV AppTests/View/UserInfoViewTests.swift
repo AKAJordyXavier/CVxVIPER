@@ -37,12 +37,14 @@ class UserInfoViewTest: XCTestCase{
     }
     
     func testShowUserInfoShowCorrectData(){
-        let expectation = XCTestExpectation(description: NSLocalizedString("Request success", comment: "nil"))
+        let failTest = NSLocalizedString("Theres was an error showing user info data", comment: "")
+        let expectationText = NSLocalizedString("Request success", comment: "")
+        let expectation = XCTestExpectation(description: expectationText)
  
         let data1 = UserResult(response: UserResponse(userInfo: UserInfo(userName: "Test", age: "22", cellphone: "0000000", email: "test@globant.com", imageURL: "test.com", linkedInURL: "test.com")))
         
         guard (view?.showUserInfo(with: data1)) != nil else {
-            XCTFail("Theres was an error showing user info data")
+            XCTFail(failTest)
             return
         }
       expectation.fulfill()

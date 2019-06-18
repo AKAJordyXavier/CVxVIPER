@@ -19,8 +19,9 @@ class UserRouterTests: XCTestCase{
     // MARK: - Integration Test
     func testCreateModuleSuccess(){
         let nv = UserRouter.createModule()
+        let moduleCreatedText = XCTestExpectation(description: "Module Created")
         // create an expectation…
-        let expectation = XCTestExpectation(description: "Module Created")
+        let expectation = moduleCreatedText
         // …then fulfill it asynchronously
         DispatchQueue.main.async {
             expectation.fulfill()

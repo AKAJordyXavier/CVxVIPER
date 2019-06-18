@@ -24,39 +24,26 @@ class Response: Codable {
 
 // MARK: - AboutMe
 class AboutMe: Codable {
-    let about: About
-    let hobbies: Hobbies
-    let review: Review
+    let about, hobbies: About
+    let skills: Skills
     let sections: Int
     
-    init(about: About, hobbies: Hobbies, review: Review, sections: Int) {
+    enum CodingKeys: String, CodingKey {
+        case about, hobbies
+        case skills = "Skills"
+        case sections
+    }
+    
+    init(about: About, hobbies: About, skills: Skills, sections: Int) {
         self.about = about
         self.hobbies = hobbies
-        self.review = review
+        self.skills = skills
         self.sections = sections
     }
 }
 
 // MARK: - About
 class About: Codable {
-    let titleSection, achivements: String
-    let rowsInSection: Int
-    
-    enum CodingKeys: String, CodingKey {
-        case titleSection
-        case achivements = "Achivements"
-        case rowsInSection
-    }
-    
-    init(titleSection: String, achivements: String, rowsInSection: Int) {
-        self.titleSection = titleSection
-        self.achivements = achivements
-        self.rowsInSection = rowsInSection
-    }
-}
-
-// MARK: - Hobbies
-class Hobbies: Codable {
     let titleSection, text: String
     let rowsInSection: Int
     
@@ -67,8 +54,8 @@ class Hobbies: Codable {
     }
 }
 
-// MARK: - Review
-class Review: Codable {
+// MARK: - Skills
+class Skills: Codable {
     let titleSection, resume: String
     let rowsInSection: Int
     

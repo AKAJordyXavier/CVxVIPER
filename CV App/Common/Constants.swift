@@ -23,8 +23,8 @@ class Constants{
     //Endpoints names 
     struct Endpoints {
         static let userInfo = "75db75d855f4805cbdc4fcf9ee8670db/raw/cc7a939cc8082191ea93f4f1aa866de6021ee850/UserInfo"
-        static let aboutMe = "b290f1f79adcbee0d716410e5862fa12/raw/8572080723a5ceafc2f291df58acc61c225f7481/AboutMe"
-        static let myCareer = "4243a721b9319fef96deb00e204678a4/raw/0810d4c8042bcb66676b7a5324929393f6104de8/MyCareer"
-        static let achivements = "2bf3e1ee16a4e751f5bbf8b7e86f303d/raw/c5ad45322897b58292db310316fe615a13478d38/Achivements"
+        static let aboutMe = "b290f1f79adcbee0d716410e5862fa12/raw/f73751f9ab119f927317d0eaf8032884b40668b5/AboutMe"
+        static let myCareer = "4243a721b9319fef96deb00e204678a4/raw/f39954407e46edca08b434754ca47c9b5a58b128/MyCareer"
+        static let achivements = "2bf3e1ee16a4e751f5bbf8b7e86f303d/raw/2dded28a7edd3d01f826ecead20dcf53c253e8a6/Achivements"
     }
 }
