@@ -20,4 +20,3 @@ VIPER allows create unit test for every layer of the app, so I tried to test mos
 -------
 
 ![Main](/Screenshots/Main.png)
-Format: ![Alt Text](url)
