@@ -10,10 +10,11 @@ import UIKit
 
 class MyCareerTableViewController: UITableViewController, MyCareerViewControllerProtocol {
     
+    //MARK: - Properties
     var myCareerMeList: MyCareerResult?
     var presenter: MyCareerPresenterProtocol?
     
-    
+    //MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
@@ -75,8 +76,17 @@ class MyCareerTableViewController: UITableViewController, MyCareerViewController
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCareerTableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCareerTableViewCell", for: indexPath) as! MyCareerTableViewCell
+        if indexPath.section == 0{
+            cell.textCellLabel.text = myCareerMeList?.myCareerResponse.myCareer.studies.achivements
+        }
+        if indexPath.section == 1{
+            cell.textCellLabel.text = myCareerMeList?.myCareerResponse.myCareer.currentWork.text
+        }
+        if indexPath.section == 2{
+            cell.textCellLabel.text = myCareerMeList?.myCareerResponse.myCareer.lastJob.resume
+        }
         
-        return UITableViewCell()
+        return cell
     }
 }

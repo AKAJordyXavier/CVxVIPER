@@ -8,12 +8,14 @@
 import Foundation
 
 class MyCareerInteractor: MyCareerInputIntercatorProtocol{
-   
+
+    //MARK: - Properties
     var presenter: MyCareerOutputIntercatorProtocol?
     var positionTable = [[String : AnyObject]]()
-    func fetchMyCareer() {
-        Request.shared.request("4243a721b9319fef96deb00e204678a4/raw/0810d4c8042bcb66676b7a5324929393f6104de8/MyCareer", with: ["":""
-        ]) { [weak self] fetchResult in
+    
+    //MARK: - Methods
+    func fetchMyCareer(endpoint: String) {
+        Request.shared.request(endpoint, entity: MyCareerResult.self) { [weak self] fetchResult in
             
             switch fetchResult{
             case .success(let data):

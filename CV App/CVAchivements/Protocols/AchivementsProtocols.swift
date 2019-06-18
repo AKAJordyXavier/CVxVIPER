@@ -28,7 +28,7 @@ protocol AchivementsPresenterProtocol{
 protocol AchivementsInputIntercatorProtocol{
     //Presenter -> Interactor
     var presenter: AchivementsOutputIntercatorProtocol? { get set }
-    func fetchAchivements ()
+    func fetchAchivements (endpoint: String)
 }
 
 protocol AchivementsOutputIntercatorProtocol{

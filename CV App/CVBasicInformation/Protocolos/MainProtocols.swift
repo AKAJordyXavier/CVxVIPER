@@ -32,7 +32,7 @@ protocol MainPresenterProtocol{
 protocol MainInputIntercatorProtocol{
     //Presenter -> Interactor
     var presenter: MainOutputIntercatorProtocol? { get set }
-    func fetchUserInfo ()
+    func fetchUserInfo (endpoint: String)
     
 }
 
@@ -47,5 +47,5 @@ protocol MainRouterProtocol{
     func pushAboutMe()
     func pushMyCareer()
     func pushAchivements()
-    static func createModule() -> UIViewController
+    static func createModule() -> UINavigationController
 }

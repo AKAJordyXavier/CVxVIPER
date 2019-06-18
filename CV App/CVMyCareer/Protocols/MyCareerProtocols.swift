@@ -27,7 +27,7 @@ protocol MyCareerPresenterProtocol{
 protocol MyCareerInputIntercatorProtocol{
     //Presenter -> Interactor
     var presenter: MyCareerOutputIntercatorProtocol? { get set }
-    func fetchMyCareer ()
+    func fetchMyCareer (endpoint: String)
     
 }
 

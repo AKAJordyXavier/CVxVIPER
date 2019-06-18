@@ -11,12 +11,14 @@ import Foundation
 
 class AchivementsInteractor: AchivementsInputIntercatorProtocol{
     
+    //MARK: - Properties
     var presenter: AchivementsOutputIntercatorProtocol?
     var positionTable = [[String : AnyObject]]()
-    func fetchAchivements() {
-        Request.shared.request("2bf3e1ee16a4e751f5bbf8b7e86f303d/raw/c5ad45322897b58292db310316fe615a13478d38/Achivements", with: ["":""
-        ]) { [weak self] fetchResult in
-            
+    
+    //MARK: - Methods
+    //Method for create and fetch the request
+    func fetchAchivements(endpoint: String) {
+        Request.shared.request(endpoint, entity: AchivementsResult.self) { [weak self] fetchResult in
             switch fetchResult{
             case .success(let data):
                 let achivementsFetch: AchivementsResult? = Request.shared.jsonDecode(data: data)

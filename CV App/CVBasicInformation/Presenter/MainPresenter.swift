@@ -10,17 +10,17 @@ import Foundation
 import UIKit
 
 class MainPresenter: MainPresenterProtocol {
-    
+    //MARK: - properties
     var view: MainViewControllerProtocol?
     var interactor: MainInputIntercatorProtocol?
     var router: MainRouterProtocol?
-    
+    //MARK: - Methods
     func viewDidLoad() {
         self.updateView()
     }
     
     func updateView() {
-        interactor?.fetchUserInfo()
+        interactor?.fetchUserInfo(endpoint: Constants.Endpoints.userInfo)
     }
     
     func aboutMePressed() {
@@ -36,6 +36,7 @@ class MainPresenter: MainPresenterProtocol {
     }    
 }
 
+//MARK: - Extension for MainOutputIntercator
 extension MainPresenter: MainOutputIntercatorProtocol{
     func userFeteched(user: UserResult) {
         view?.showUserInfo(with: user)

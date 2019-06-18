@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-class UserRouter: MainRouterProtocol{
+class UserRouter: MainRouterProtocol {
     
     weak var viewController: UIViewController?
     
-    static func createModule() -> UIViewController {
+    static func createModule() -> UINavigationController {
         // Create layers
         let router = UserRouter()
         let presenter = MainPresenter()
@@ -27,32 +27,27 @@ class UserRouter: MainRouterProtocol{
         presenter.interactor = interactor
         presenter.router = router
         presenter.view = view
-        
         view.presenter = presenter
         interactor.presenter = presenter
-        
         router.viewController = view
         
         navigation.isNavigationBarHidden = false
-        
         return navigation
     }
-    
+    //Method for present the About Me section
     func pushAboutMe() {
         let aboutMeViewcontroller = AboutMeRouter.createModule()
         
         viewController?.navigationController?.pushViewController(aboutMeViewcontroller, animated: true)
     }
-    
+    //Method for present the My career section
     func pushMyCareer() {
         let myCareerViewController = MyCareerRouter.createModule()
-        
         viewController?.navigationController?.pushViewController(myCareerViewController, animated: true)
     }
-    
+    //Method for present the Achivements section
     func pushAchivements() {
         let achivementsViewController = AchivementsRouter.createModule()
-        
         viewController?.navigationController?.pushViewController(achivementsViewController, animated: true)
     }
 }
