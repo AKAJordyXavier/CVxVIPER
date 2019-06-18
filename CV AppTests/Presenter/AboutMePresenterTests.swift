@@ -13,7 +13,8 @@ class AboutMePresenterTests: XCTestCase{
     let mockInteractor = MockAboutMeInputInteractor()
     let mockRouter = MockAboutMeRouter()
     var mockView = MockAboutMeView()
-   let aboutMe = AboutMeResult(response: Response(aboutMe: AboutMe(about: About(titleSection: "About Title", achivements: "Test achivements", rowsInSection: 2), hobbies: Hobbies(titleSection: "Hobbies Title", text: "Test text", rowsInSection: 2), review: Review(titleSection: "Review Title", resume: "Test Resume", rowsInSection: 2), sections: 3)))
+    let failText = NSLocalizedString("Error test", comment: "")
+   let aboutMe = AboutMeResult(response: Response(aboutMe: AboutMe(about: About(titleSection: "About Title", text: "text", rowsInSection: 2), hobbies: About(titleSection: "Hobbies Title", text: "text", rowsInSection: 1), skills: Skills(titleSection: "Skills title", resume: "resume", rowsInSection: 3), sections: 3)))
     
     override func setUp() {
         super.setUp()
@@ -30,17 +31,17 @@ class AboutMePresenterTests: XCTestCase{
     
     func testShowAboutMeSuccess(){
         presenter?.aboutMeFeteched(aboutMe: aboutMe)
-        XCTAssert(mockView.showAboutMeCalled == 1, "Error test")
+        XCTAssert(mockView.showAboutMeCalled == 1, failText)
     }
     
     func testShowUserInfoFailed(){
         presenter?.aboutMeFetchFailed()
-        XCTAssert(mockView.showAboutMeFailedCalled == 1, "Error test")
+        XCTAssert(mockView.showAboutMeFailedCalled == 1, failText)
     }
     
     func testUpdateViewSuccess(){
         presenter?.updateView()
-        XCTAssert(mockInteractor.fetchAboutMeCalled == 1, "Error test")
+        XCTAssert(mockInteractor.fetchAboutMeCalled == 1, failText)
     }
     
 }

@@ -14,6 +14,7 @@ class MainPresenterTests: XCTestCase{
     let mockInteractor = MockMainInputInteractor()
     let mockRouter = MockMainRouter()
     var mockView = MockMainView()
+    let failText = NSLocalizedString("Error test", comment: "")
     let data1 = UserResult(response: UserResponse(userInfo: UserInfo(userName: "Test", age: "22", cellphone: "0000000", email: "test@globant.com", imageURL: "test.com", linkedInURL: "test.com")))
     
     override func setUp() {
@@ -31,31 +32,31 @@ class MainPresenterTests: XCTestCase{
     
     func testShowUserInfoSuccess(){
         presenter?.userFeteched(user: data1)
-        XCTAssert(mockView.showUserInfoCalled == 1, "Error test")
+        XCTAssert(mockView.showUserInfoCalled == 1, failText)
     }
     
     func testShowUserInfoFailed(){
         presenter?.userFetchFailed()
-        XCTAssert(mockView.showUserInfoFailedCalled == 1, "Error test")
+        XCTAssert(mockView.showUserInfoFailedCalled == 1, failText)
     }
     
     func testUpdateViewSuccess(){
         presenter?.updateView()
-        XCTAssert(mockInteractor.fetchUserInfoCalled == 1, "Error test")
+        XCTAssert(mockInteractor.fetchUserInfoCalled == 1, failText)
     }
     
     func testAboutMePressed(){
         presenter?.aboutMePressed()
-        XCTAssert(mockRouter.pushAboutMeCalled == 1, "Error test")
+        XCTAssert(mockRouter.pushAboutMeCalled == 1, failText)
     }
     
     func testMyCareerPressed(){
         presenter?.myCareerPressed()
-        XCTAssert(mockRouter.pushMyCareerCalled == 1, "Error test")
+        XCTAssert(mockRouter.pushMyCareerCalled == 1, failText)
     }
     
     func testAchivementsPressed(){
         presenter?.achivementsPressed()
-        XCTAssert(mockRouter.pushAchivementsCalled == 1, "Error test")
+        XCTAssert(mockRouter.pushAchivementsCalled == 1, failText)
     }
 }

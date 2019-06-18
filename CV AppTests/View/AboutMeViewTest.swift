@@ -27,7 +27,7 @@ class AboutMeViewTest: XCTestCase{
     func testShowAboutMeShowCorrectData(){
         let expectation = XCTestExpectation(description: NSLocalizedString("Request success", comment: "nil"))
         
-         let aboutMe = AboutMeResult(response: Response(aboutMe: AboutMe(about: About(titleSection: "About Title", achivements: "Test achivements", rowsInSection: 2), hobbies: Hobbies(titleSection: "Hobbies Title", text: "Test text", rowsInSection: 2), review: Review(titleSection: "Review Title", resume: "Test Resume", rowsInSection: 2), sections: 3)))
+        let aboutMe = AboutMeResult(response: Response(aboutMe: AboutMe(about: About(titleSection: "About Title", text: "text", rowsInSection: 2), hobbies: About(titleSection: "Hobbies Title", text: "text", rowsInSection: 1), skills: Skills(titleSection: "Skills title", resume: "resume", rowsInSection: 3), sections: 3)))
         
         guard (view?.showAboutMe(with: aboutMe)) != nil else {
             XCTFail("Theres was an error showing user info data")

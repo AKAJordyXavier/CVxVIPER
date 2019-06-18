@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import Foundation
 
-// MARK: - AchivementsResult
+// MARK: - Welcome
 class AchivementsResult: Codable {
     let achivementsResponse: AchivementsResponse
     
@@ -54,18 +55,18 @@ class Achivements: Codable {
 
 // MARK: - Courses
 class Courses: Codable {
-    let titleSection, courses: String
+    let titleSection, ciscoCCNA: String
     let rowsInSection: Int
     
     enum CodingKeys: String, CodingKey {
         case titleSection
-        case courses = "Courses"
+        case ciscoCCNA = "CiscoCCNA"
         case rowsInSection
     }
     
-    init(titleSection: String, courses: String, rowsInSection: Int) {
+    init(titleSection: String, ciscoCCNA: String, rowsInSection: Int) {
         self.titleSection = titleSection
-        self.courses = courses
+        self.ciscoCCNA = ciscoCCNA
         self.rowsInSection = rowsInSection
     }
 }
@@ -84,12 +85,13 @@ class Extras: Codable {
 
 // MARK: - Talks
 class Talks: Codable {
-    let titleSection, text: String
+    let titleSection, talk1, talk2: String
     let rowsInSection: Int
     
-    init(titleSection: String, text: String, rowsInSection: Int) {
+    init(titleSection: String, talk1: String, talk2: String, rowsInSection: Int) {
         self.titleSection = titleSection
-        self.text = text
+        self.talk1 = talk1
+        self.talk2 = talk2
         self.rowsInSection = rowsInSection
     }
 }

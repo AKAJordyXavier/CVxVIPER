@@ -5,7 +5,6 @@
 //  Created by Jordy Xavier Pazaran Reyes on 6/10/19.
 //  Copyright © 2019 Jordy Xavier Pazaran Reyes. All rights reserved.
 //
-
 import Foundation
 
 // MARK: - MyCareerResult
@@ -33,27 +32,27 @@ class MyCareerResponse: Codable {
 // MARK: - MyCareer
 class MyCareer: Codable {
     let studies: Studies
-    let currentWork: CurrentWork
+    let currentJob: CurrentJob
     let lastJob: LastJob
     let sections: Int
     
     enum CodingKeys: String, CodingKey {
         case studies = "Studies"
-        case currentWork = "CurrentWork"
+        case currentJob = "CurrentJob"
         case lastJob = "LastJob"
         case sections
     }
     
-    init(studies: Studies, currentWork: CurrentWork, lastJob: LastJob, sections: Int) {
+    init(studies: Studies, currentJob: CurrentJob, lastJob: LastJob, sections: Int) {
         self.studies = studies
-        self.currentWork = currentWork
+        self.currentJob = currentJob
         self.lastJob = lastJob
         self.sections = sections
     }
 }
 
-// MARK: - CurrentWork
-class CurrentWork: Codable {
+// MARK: - CurrentJob
+class CurrentJob: Codable {
     let titleSection, text: String
     let rowsInSection: Int
     
@@ -78,18 +77,12 @@ class LastJob: Codable {
 
 // MARK: - Studies
 class Studies: Codable {
-    let titleSection, achivements: String
+    let titleSection, studie: String
     let rowsInSection: Int
     
-    enum CodingKeys: String, CodingKey {
-        case titleSection
-        case achivements = "Achivements"
-        case rowsInSection
-    }
-    
-    init(titleSection: String, achivements: String, rowsInSection: Int) {
+    init(titleSection: String, studie: String, rowsInSection: Int) {
         self.titleSection = titleSection
-        self.achivements = achivements
+        self.studie = studie
         self.rowsInSection = rowsInSection
     }
 }

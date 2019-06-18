@@ -13,12 +13,12 @@ class MyCareerTableViewController: UITableViewController, MyCareerViewController
     //MARK: - Properties
     var myCareerMeList: MyCareerResult?
     var presenter: MyCareerPresenterProtocol?
-    
+    let titleView = NSLocalizedString("My Career", comment: "")
     //MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
-        self.title = "My Career"
+        self.title = titleView
         tableView.tableFooterView = UIView()
         presenter?.viewDidLoad()
         
@@ -32,8 +32,10 @@ class MyCareerTableViewController: UITableViewController, MyCareerViewController
     }
     
     func showNetworkingError() {
+        let alertTitle = NSLocalizedString("Error", comment: "")
+        let alertMessage = NSLocalizedString("There was an error loading", comment: "")
         DispatchQueue.main.sync { [weak self] in
-            AlertView.instance.showAlert(title: "Error", message: "There was an error loading the information")
+            AlertView.instance.showAlert(title: alertTitle, message: alertMessage)
             self!.view.addSubview(AlertView.instance.parentView)
         }
     }
@@ -49,7 +51,7 @@ class MyCareerTableViewController: UITableViewController, MyCareerViewController
             return myCareerMeList?.myCareerResponse.myCareer.studies.rowsInSection ?? 0
             
         case 1:
-            return myCareerMeList?.myCareerResponse.myCareer.currentWork.rowsInSection ?? 0
+            return myCareerMeList?.myCareerResponse.myCareer.currentJob.rowsInSection ?? 0
             
         case 2:
             return myCareerMeList?.myCareerResponse.myCareer.lastJob.rowsInSection ?? 0
@@ -65,7 +67,7 @@ class MyCareerTableViewController: UITableViewController, MyCareerViewController
             return myCareerMeList?.myCareerResponse.myCareer.studies.titleSection
         }
         if section == 1{
-            return myCareerMeList?.myCareerResponse.myCareer.currentWork.titleSection
+            return myCareerMeList?.myCareerResponse.myCareer.currentJob.titleSection
         }
         
         if section == 2{
@@ -78,10 +80,10 @@ class MyCareerTableViewController: UITableViewController, MyCareerViewController
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCareerTableViewCell", for: indexPath) as! MyCareerTableViewCell
         if indexPath.section == 0{
-            cell.textCellLabel.text = myCareerMeList?.myCareerResponse.myCareer.studies.achivements
+            cell.textCellLabel.text = myCareerMeList?.myCareerResponse.myCareer.studies.studie
         }
         if indexPath.section == 1{
-            cell.textCellLabel.text = myCareerMeList?.myCareerResponse.myCareer.currentWork.text
+            cell.textCellLabel.text = myCareerMeList?.myCareerResponse.myCareer.currentJob.text
         }
         if indexPath.section == 2{
             cell.textCellLabel.text = myCareerMeList?.myCareerResponse.myCareer.lastJob.resume
