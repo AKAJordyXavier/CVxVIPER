@@ -10,9 +10,11 @@ import UIKit
 
 class AchivementsTableViewController: UITableViewController, AchivementsViewControllerProtocol {
     
+    //MARK: - Properties
     var achivementsList: AchivementsResult?
     var presenter: AchivementsPresenterProtocol?
     
+    //MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: false)
@@ -29,6 +31,7 @@ class AchivementsTableViewController: UITableViewController, AchivementsViewCont
         }
     }
     
+    //Methods for display the generic alert
     func showNetworkingError() {
         DispatchQueue.main.sync { [weak self] in
             AlertView.instance.showAlert(title: "Error", message: "There was an error loading the information")
@@ -73,8 +76,17 @@ class AchivementsTableViewController: UITableViewController, AchivementsViewCont
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AchivementsTableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AchivementsTableViewCell", for: indexPath) as! AchivementsTableViewCell
+        if indexPath.section == 0{
+            cell.textCellLabel.text = achivementsList?.achivementsResponse.achivements.courses.courses
+        }
+        if indexPath.section == 1{
+            cell.textCellLabel.text = achivementsList?.achivementsResponse.achivements.talks.text
+        }
+        if indexPath.section == 2{
+            cell.textCellLabel.text = achivementsList?.achivementsResponse.achivements.extras.resume
+        }
         
-        return UITableViewCell()
+        return cell
     }
 }

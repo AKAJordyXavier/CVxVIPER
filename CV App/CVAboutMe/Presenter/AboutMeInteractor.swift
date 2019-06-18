@@ -12,19 +12,19 @@ class AboutMeInteractor: AboutMeInputIntercatorProtocol{
     
     var presenter: AboutMeOutputIntercatorProtocol?
     var positionTable = [[String : AnyObject]]()
-    func fetchAboutMe() {
-        Request.shared.request("b290f1f79adcbee0d716410e5862fa12/raw/8572080723a5ceafc2f291df58acc61c225f7481/AboutMe", with: ["":""
-        ]) { [weak self] fetchResult in
+    //Method for create and fetch the request
+    func fetchAboutMe(endpoint: String) {
+        Request.shared.request(endpoint, entity: AboutMeResult.self) { [weak self] fetchResult in
             
             switch fetchResult{
             case .success(let data):
                 let aboutMeFetch: AboutMeResult? = Request.shared.jsonDecode(data: data)
                 guard let result = self?.presenter?.aboutMeFeteched(aboutMe: aboutMeFetch!) else{
-                    self?.presenter?.userFetchFailed()
+                    self?.presenter?.aboutMeFetchFailed()
                     return
                 }
             case .failure(_):
-                self?.presenter?.userFetchFailed()
+                self?.presenter?.aboutMeFetchFailed()
             }
         }
     }

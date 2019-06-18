@@ -19,21 +19,17 @@ class MyCareerRouter: MyCareerRouterProtocol{
         let interactor = MyCareerInteractor()
         let presenter = MyCareerPresenter()
         let view = UIStoryboard(name: "CVMyCareer", bundle: nil).instantiateViewController(withIdentifier: Constants.StoryboardNames.cvMyCareer) as! MyCareerTableViewController
-        
         let navigation = UINavigationController(rootViewController: view)
         
         //Connect layers
         presenter.interactor = interactor
         presenter.router = router
         presenter.view = view
-        
         view.presenter = presenter
         interactor.presenter = presenter
-        
         router.viewController = view
         
         navigation.isNavigationBarHidden = true
-        
         return view
     }
 }

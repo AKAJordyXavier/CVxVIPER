@@ -32,7 +32,6 @@ class Request {
     
     // MARK: - Enums
     enum NetworkingErrors: Error{//Define the errors that we can find when the app fetch the URL
-        case badURL
         case netWorkError
         case invalidData
         case invalidRequest
@@ -50,15 +49,11 @@ class Request {
     /// This method allows to make the request to a especific URL with components sendings by the extension URL on the top. Also this method create a URL base it on a tokenID and a date
     ///
     /// - Parameters:
-    ///   - endpoint: The endpoint of a specific view, like category, venues, search, etc
     ///   - queries: The queries of the URL, the key of the dictionary never gonna change
     ///   - petition: The kind of request GET/POST
     ///   - completionHandler: This completion handler recive a result compose by a data and a case of the NetworkinErrors enum and return a void
-    func request(_ endpoint: String, with queries: [String: String], completionHandler: @escaping (Result<Data, NetworkingErrors>) -> Void){
-        guard let url = baseURL.appendingPathComponent(endpoint).withQueries(queries) else{
-            completionHandler(.failure(.badURL)) //At this part we gonna have the complete URL that we gonna fetch, if there was an error, the completion returns a bad URL case
-            return
-        }
+    func request<T:Codable>(_ endpoint: String, entity: T.Type, completionHandler: @escaping (Result<Data, NetworkingErrors>) -> Void){
+        let url = baseURL.appendingPathComponent(endpoint) 
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         URLSession.shared.dataTask(with: request) { data, reponse, error  in
@@ -66,11 +61,11 @@ class Request {
                 completionHandler(.failure(.netWorkError)) // Network error case
                 return
             }
-            guard let data = data else{
+            guard let dataFetched = data, let _ : T = self.jsonDecode(data: dataFetched) else{
                 completionHandler(.failure(.invalidData))// Data error case
                 return
             }
-            completionHandler(.success(data))
+            completionHandler(.success(dataFetched))
             }.resume()//Resume task
     }
     
@@ -80,8 +75,6 @@ class Request {
     /// - Returns: returns the json decode in an array
     func jsonDecode<T: Decodable>(data: Data) -> T? {
         let jsonDecoder = JSONDecoder()
-        
-        
         do {
             return try jsonDecoder.decode(T.self, from: data)
         } catch {

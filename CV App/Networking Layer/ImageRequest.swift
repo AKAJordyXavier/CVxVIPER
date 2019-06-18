@@ -14,7 +14,6 @@ extension UIImageView {
         guard let url = URL(string: urlString) else {
             return
         }
-        
         DispatchQueue.global().async { [unowned self] in
             if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                 DispatchQueue.main.async {

@@ -12,8 +12,10 @@ import UIKit
 
 class AchivementsRouter: AchivementsRouterProtocol{
     
+    //MARK: - Properties
     weak var viewController: UIViewController?
 
+    //MARK: - Methods
     static func createModule() -> UIViewController{
         // Create layers
         let router = AchivementsRouter()

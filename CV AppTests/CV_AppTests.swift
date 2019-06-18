@@ -9,26 +9,28 @@
 import XCTest
 @testable import CV_App
 
-class CV_AppTests: XCTestCase {
-
+class CV_NetworkLayer: XCTestCase {
+    var interactor: AboutMeInteractor?
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        interactor = AboutMeInteractor()
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testUserNetworkRequestSuccess(){
+        //given
+        let expectation = XCTestExpectation(description: NSLocalizedString("Request success", comment: "nil"))
+        
+        // when
+        Request.shared.request("75db75d855f4805cbdc4fcf9ee8670db/raw/cc7a939cc8082191ea93f4f1aa866de6021ee850/UserInfo", entity: UserResult.self, completionHandler: { fetchResult in
+            switch fetchResult {
+            // then
+            case .success:
+                expectation.fulfill()
+            case .failure:
+                XCTFail()
+            }
+        })
+        wait(for: [expectation], timeout: 3.0)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
+
+

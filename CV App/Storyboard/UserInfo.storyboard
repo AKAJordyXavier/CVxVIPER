@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -170,11 +170,25 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MkF-57-1iz">
+                                        <rect key="frame" x="8" y="208" width="304" height="35"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
+                                        <state key="normal" title="Refresh">
+                                            <color key="titleColor" red="0.91110092399999998" green="0.23265191909999999" blue="0.1928427815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="refreshButton:" destination="01J-lp-oVM" eventType="touchUpInside" id="tg5-eM-CYC"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.89006382230000003" green="0.91374516490000002" blue="0.91360384230000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="MkF-57-1iz" firstAttribute="leading" secondItem="qwB-rQ-YlO" secondAttribute="leading" constant="8" id="56Z-JX-kEI"/>
                                     <constraint firstItem="zTA-eL-5f2" firstAttribute="centerX" secondItem="qwB-rQ-YlO" secondAttribute="centerX" id="DuX-7N-Bq1"/>
+                                    <constraint firstAttribute="trailing" secondItem="MkF-57-1iz" secondAttribute="trailing" constant="8" id="Jpv-o7-fmO"/>
                                     <constraint firstItem="zTA-eL-5f2" firstAttribute="centerY" secondItem="qwB-rQ-YlO" secondAttribute="centerY" id="WWO-gk-S1Y"/>
+                                    <constraint firstAttribute="bottom" secondItem="MkF-57-1iz" secondAttribute="bottom" constant="129" id="Wo3-UI-kuY"/>
+                                    <constraint firstItem="MkF-57-1iz" firstAttribute="top" secondItem="zTA-eL-5f2" secondAttribute="bottom" constant="8" id="hfN-A6-Abm"/>
                                 </constraints>
                             </view>
                         </subviews>

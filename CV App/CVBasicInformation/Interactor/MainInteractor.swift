@@ -9,13 +9,14 @@
 import Foundation
 
 class MainInteractor: MainInputIntercatorProtocol{
-    
+    //MARK: - Properties
     var presenter: MainOutputIntercatorProtocol?
     
-    func fetchUserInfo() {
-        Request.shared.request("75db75d855f4805cbdc4fcf9ee8670db/raw/cc7a939cc8082191ea93f4f1aa866de6021ee850/UserInfo", with: ["":""
-        ]) { [weak self] fetchResult in
-            
+    // MARK: - Methods
+    
+    //Method for create and fetch the request
+    func fetchUserInfo(endpoint: String) {
+        Request.shared.request(endpoint, entity: UserResult.self ) { [weak self] fetchResult in
             switch fetchResult{
             case .success(let data):
                 let userFetch: UserResult? = Request.shared.jsonDecode(data: data)

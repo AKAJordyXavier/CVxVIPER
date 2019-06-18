@@ -27,14 +27,14 @@ protocol AboutMePresenterProtocol{
 protocol AboutMeInputIntercatorProtocol{
     //Presenter -> Interactor
     var presenter: AboutMeOutputIntercatorProtocol? { get set }
-    func fetchAboutMe ()
+    func fetchAboutMe (endpoint: String)
     
 }
 
 protocol AboutMeOutputIntercatorProtocol{
     //Interactor -> Presenter
     func aboutMeFeteched(aboutMe: AboutMeResult)
-    func userFetchFailed()
+    func aboutMeFetchFailed()
 }
 
 protocol AboutMeRouterProtocol{

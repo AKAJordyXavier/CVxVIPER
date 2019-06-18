@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import WebKit
 
 class UserInfoViewController: UIViewController, MainViewControllerProtocol {
     
     var presenter: MainPresenterProtocol?
+    var user: UserResult?
     // MARK: - Outlets
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
@@ -23,20 +25,16 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
     @IBOutlet weak var achivementsButton: UIButton!
     @IBOutlet weak var linkedInButton: UIButton!
     
-    // MARK: Properties
+    // MARK: - Properties
     var linkedInUrl: String?
     var pulseLayers = [CAShapeLayer]()
-    var aboutMe: AboutMeResult?
     
+    //MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        myCareerButton.isEnabled = false
-        aboutMeButton.isEnabled = false
-        achivementsButton.isEnabled = false
-        linkedInButton.isHidden = true
-        emptyStateView.isHidden = true
         presenter?.viewDidLoad()
         profileUserImage.layer.cornerRadius = profileUserImage.frame.size.width/2.0
+        linkedInButton.isHidden = true
         
     }
     
@@ -56,20 +54,7 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
         profileUserImage.layer.removeAllAnimations()
     }
     
-    @IBAction func aboutMeButton(_ sender: Any) {
-        presenter?.aboutMePressed()
-    }
-    
-    
-    @IBAction func myCareerButton(_ sender: Any) {
-        presenter?.myCareerPressed()
-    }
-    
-    
-    @IBAction func achivementsButton(_ sender: Any) {
-        presenter?.achivementsPressed()
-    }
-    
+    //Method for paint all the user basic information from the requesr
     func showUserInfo(with user: UserResult) {
         let userInfo = user.response.userInfo
         let userName = userInfo.userName
@@ -80,10 +65,6 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
         let cellphone = userInfo.cellphone
         
         DispatchQueue.main.async  { [weak self] in
-            self?.aboutMeButton.isEnabled = true
-            self?.achivementsButton.isEnabled = true
-            self?.linkedInButton.isHidden = false
-            self?.myCareerButton.isEnabled = true
             self?.userNameLabel.text = userName
             self?.ageLabel.text = age
             self?.cellphoneLabel.text = cellphone
@@ -99,9 +80,8 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
             self!.view.addSubview(AlertView.instance.parentView)
         }
     }
-    
+    //Method for animated the pulse
     func animatePulse(index: Int){
-        
         pulseLayers[index].strokeColor = UIColor.white.cgColor
         let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
         
@@ -120,7 +100,7 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
         opacityAnimation.repeatCount = .greatestFiniteMagnitude
         pulseLayers[index].add(scaleAnimation, forKey: "opacity")
     }
-    
+    //Method for create a pulse
     func createPulse() {
         for _ in 0...2{
             let circularPath = UIBezierPath(arcCenter: .zero, radius: UIScreen.main.bounds.size.width/2.0, startAngle: 0 , endAngle: 2 * .pi , clockwise: true)
@@ -143,5 +123,33 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
             }
         }
     }
+    
+    //MARK: - Buttons
+    @IBAction func aboutMeButton(_ sender: Any) {
+        presenter?.aboutMePressed()
+    }
+    
+    @IBAction func myCareerButton(_ sender: Any) {
+        presenter?.myCareerPressed()
+    }
+    
+    @IBAction func achivementsButton(_ sender: Any) {
+        presenter?.achivementsPressed()
+    }
+    
+    @IBAction func refreshButton(_ sender: Any) {
+        reloadViewFromNib()
+    }
+    @IBAction func linkedInButton(_ sender: Any) {
+    }
 }
 
+//MARK: - UIViewController Extension
+extension UIViewController{
+    func reloadViewFromNib(){
+        let parent = view.superview
+        view.removeFromSuperview()
+        view = nil
+        parent?.addSubview(view)
+    }
+}
