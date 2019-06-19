@@ -29,4 +29,16 @@ class MainInteractor: MainInputIntercatorProtocol{
             }
         }
     }
+    
+    func fetchImage(imageURL: String){
+        Request.shared.downloadImage(urlImage: imageURL) { [weak self] fetchingImage in
+            switch fetchingImage{
+            case .success(let data):
+                self?.presenter?.dowloadedImage(data)
+            case .failure(_):
+                break
+            }
+            
+        }
+    }
 }
