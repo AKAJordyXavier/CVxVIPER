@@ -25,7 +25,6 @@
 		FC263F2822A58A5400E073F4 /* UserInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC263F2722A58A5400E073F4 /* UserInfo.storyboard */; };
 		FC263F2A22A58A7800E073F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC263F2922A58A7800E073F4 /* LaunchScreen.storyboard */; };
 		FC263F2D22A5993600E073F4 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC263F2C22A5993600E073F4 /* MainPresenter.swift */; };
-		FC263F2F22A5C74500E073F4 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC263F2E22A5C74500E073F4 /* ImageRequest.swift */; };
 		FC263F3122A5DE8900E073F4 /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC263F3022A5DE8900E073F4 /* UserRouter.swift */; };
 		FC29BE1122A96D5200D1B760 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC29BE1022A96D5200D1B760 /* RootRouter.swift */; };
 		FC29BE1322A9A61400D1B760 /* AboutMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC29BE1222A9A61400D1B760 /* AboutMe.swift */; };
@@ -109,7 +108,6 @@
 		FC263F2722A58A5400E073F4 /* UserInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserInfo.storyboard; sourceTree = "<group>"; };
 		FC263F2922A58A7800E073F4 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC263F2C22A5993600E073F4 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
-		FC263F2E22A5C74500E073F4 /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
 		FC263F3022A5DE8900E073F4 /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
 		FC29BE1022A96D5200D1B760 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		FC29BE1222A9A61400D1B760 /* AboutMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMe.swift; sourceTree = "<group>"; };
@@ -337,7 +335,6 @@
 			isa = PBXGroup;
 			children = (
 				FC263F1322A57CB400E073F4 /* Request.swift */,
-				FC263F2E22A5C74500E073F4 /* ImageRequest.swift */,
 				FCAD5C9822B7F2B2006C1C15 /* Result.swift */,
 			);
 			path = "Networking Layer";
@@ -769,7 +766,6 @@
 				FC9432D722A6E799007D427E /* AboutMeProtocols.swift in Sources */,
 				FC25DE7D22AEA9E00058DE47 /* AboutMeTableViewCell.swift in Sources */,
 				FC263F0F22A5784300E073F4 /* MainInteractor.swift in Sources */,
-				FC263F2F22A5C74500E073F4 /* ImageRequest.swift in Sources */,
 				FC263F3122A5DE8900E073F4 /* UserRouter.swift in Sources */,
 				FC1427EE22AAD4D300E180FD /* Constants.swift in Sources */,
 			);

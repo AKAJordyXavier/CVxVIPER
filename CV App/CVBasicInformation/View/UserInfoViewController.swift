@@ -51,7 +51,7 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        profileUserImage.layer.removeAllAnimations()
+//        profileUserImage.layer.removeAllAnimations()
     }
     
     //Method for paint all the user basic information from the requesr
@@ -63,13 +63,19 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
         let age = userInfo.age
         let email = userInfo.email
         let cellphone = userInfo.cellphone
-        
+        presenter?.getImage(imageURL: imageURL ?? "nil")
         DispatchQueue.main.async  { [weak self] in
             self?.userNameLabel.text = userName
             self?.ageLabel.text = age
             self?.cellphoneLabel.text = cellphone
             self?.emailLabel.text = email
-            self?.profileUserImage.load(from: "\(imageURL!)")
+        }
+    }
+    
+    func imageWithData(data: Data){
+        DispatchQueue.main.async {
+            let image = UIImage(data: data)
+            self.profileUserImage.image = image
         }
     }
     

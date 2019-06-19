@@ -15,6 +15,7 @@ protocol MainViewControllerProtocol: class{
     func showNetworkingError()
     func createPulse()
     func animatePulse(index: Int)
+    func imageWithData(data: Data)
 }
 
 protocol MainPresenterProtocol{
@@ -27,12 +28,14 @@ protocol MainPresenterProtocol{
     func aboutMePressed()
     func myCareerPressed()
     func achivementsPressed()
+    func getImage(imageURL: String)
 }
 
 protocol MainInputIntercatorProtocol{
     //Presenter -> Interactor
     var presenter: MainOutputIntercatorProtocol? { get set }
     func fetchUserInfo (endpoint: String)
+    func fetchImage(imageURL: String)
     
 }
 
@@ -40,6 +43,7 @@ protocol MainOutputIntercatorProtocol{
     //Interactor -> Presenter
     func userFeteched(user: UserResult)
     func userFetchFailed()
+    func dowloadedImage(_ data: Data)
 }
 
 protocol MainRouterProtocol{

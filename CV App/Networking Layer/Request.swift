@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 // MARK: - URL Extension
 extension URL{
     
@@ -46,11 +47,11 @@ class Request {
     }
     
     // MARK: - Methods
-    /// This method allows to make the request to a especific URL with components sendings by the extension URL on the top. Also this method create a URL base it on a tokenID and a date
+    /// This method allows to make the request to a especific URL with components sendings by the extension URL on the top.
     ///
     /// - Parameters:
     ///   - queries: The queries of the URL, the key of the dictionary never gonna change
-    ///   - petition: The kind of request GET/POST
+    ///   - petition: The kind of request GET
     ///   - completionHandler: This completion handler recive a result compose by a data and a case of the NetworkinErrors enum and return a void
     func request<T:Codable>(_ endpoint: String, entity: T.Type, completionHandler: @escaping (Result<Data, NetworkingErrors>) -> Void){
         let url = baseURL.appendingPathComponent(endpoint) 
@@ -67,6 +68,27 @@ class Request {
             }
             completionHandler(.success(dataFetched))
             }.resume()//Resume task
+    }
+    
+    
+    func downloadImage(urlImage: String, completionHandler: @escaping (Result<Data, NetworkingErrors>) -> Void){
+        guard let url = URL(string: urlImage) else {
+            completionHandler(.failure(.invalidRequest))
+            return
+        }
+        let requestImage = URLRequest(url: url)
+        print(requestImage)
+        URLSession.shared.dataTask(with: requestImage){ data, response, error in
+            guard error == nil else{
+                completionHandler(.failure(.netWorkError)) // Network error case
+                return
+            }
+            guard let fetchedData = data else{
+                completionHandler(.failure(.invalidData))// Data error case
+                return
+            }
+            completionHandler(.success(fetchedData))
+            }.resume()
     }
     
     /// This method its gonna decode the DATA recived by the completion Hander of the fuction request, using CODABLE and also the method expect to recive a generic T

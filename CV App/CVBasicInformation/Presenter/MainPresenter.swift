@@ -21,6 +21,11 @@ class MainPresenter: MainPresenterProtocol {
     
     func updateView() {
         interactor?.fetchUserInfo(endpoint: Constants.Endpoints.userInfo)
+        
+    }
+    
+    func getImage(imageURL: String){
+        interactor?.fetchImage(imageURL: imageURL)
     }
     
     func aboutMePressed() {
@@ -44,5 +49,9 @@ extension MainPresenter: MainOutputIntercatorProtocol{
     
     func userFetchFailed() {
         view?.showNetworkingError()
+    }
+    
+    func dowloadedImage(_ data: Data){
+        view?.imageWithData(data: data)
     }
 }
