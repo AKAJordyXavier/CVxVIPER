@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -227,6 +227,7 @@
                         <outlet property="linkedInButton" destination="k2T-VG-jvO" id="zJy-PQ-LSJ"/>
                         <outlet property="myCareerButton" destination="Gj9-76-yJB" id="Iuh-5H-KrB"/>
                         <outlet property="profileUserImage" destination="2o4-Dz-j7F" id="9eS-fp-qnJ"/>
+                        <outlet property="stackview" destination="Fg5-be-Kq2" id="MO9-iM-DnB"/>
                         <outlet property="userNameLabel" destination="cTS-Ph-t3i" id="K5m-WA-CGD"/>
                     </connections>
                 </viewController>

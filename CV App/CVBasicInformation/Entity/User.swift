@@ -9,7 +9,7 @@
 import Foundation
 
 //MARK: - UserResult
-public class UserResult: Codable{
+struct UserResult: Codable{
     let response: UserResponse
     
     init(response: UserResponse) {
@@ -17,7 +17,7 @@ public class UserResult: Codable{
     }
 }
 //MARK: - UserResponse
-class UserResponse: Codable{
+struct UserResponse: Codable{
     let userInfo: UserInfo
     
     init(userInfo: UserInfo) {
@@ -25,7 +25,7 @@ class UserResponse: Codable{
     }
 }
 //MARK: - UserInfo
-class UserInfo: Codable {
+struct UserInfo: Codable {
     let userName: String?
     let age: String?
     let cellphone: String?

@@ -27,7 +27,7 @@ protocol AboutMePresenterProtocol{
 protocol AboutMeInputIntercatorProtocol{
     //Presenter -> Interactor
     var presenter: AboutMeOutputIntercatorProtocol? { get set }
-    func fetchAboutMe (endpoint: String)
+    func fetchAboutMe(endpoint: String)
     
 }
 

@@ -14,8 +14,7 @@ class AboutMePresenterTests: XCTestCase{
     let mockRouter = MockAboutMeRouter()
     var mockView = MockAboutMeView()
     let failText = NSLocalizedString("Error test", comment: "")
-   let aboutMe = AboutMeResult(response: Response(aboutMe: AboutMe(about: About(titleSection: "About Title", text: "text", rowsInSection: 2), hobbies: About(titleSection: "Hobbies Title", text: "text", rowsInSection: 1), skills: Skills(titleSection: "Skills title", resume: "resume", rowsInSection: 3), sections: 3)))
-    
+    let aboutMe = AboutMeResult(response: Response(AboutMe: AboutMe(about: About(titleSection: "About Title", text: "text", rowsInSection: 2), hobbies: About(titleSection: "Hobbies Title", text: "text", rowsInSection: 1), Skills: Skills(titleSection: "Skills title", resume: "resume", rowsInSection: 3), sections: 3)))
     override func setUp() {
         super.setUp()
         presenter = AboutMePresenter()

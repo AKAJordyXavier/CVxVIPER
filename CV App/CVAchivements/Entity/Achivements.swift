@@ -10,7 +10,7 @@ import Foundation
 import Foundation
 
 // MARK: - Welcome
-class AchivementsResult: Codable {
+struct AchivementsResult: Codable {
     let achivementsResponse: AchivementsResponse
     
     init(achivementsResponse: AchivementsResponse) {
@@ -19,60 +19,43 @@ class AchivementsResult: Codable {
 }
 
 // MARK: - AchivementsResponse
-class AchivementsResponse: Codable {
-    let achivements: Achivements
-    
-    enum CodingKeys: String, CodingKey {
-        case achivements = "Achivements"
-    }
-    
+struct AchivementsResponse: Codable {
+    let Achivements: Achivements
+ 
     init(achivements: Achivements) {
-        self.achivements = achivements
+        self.Achivements = achivements
     }
 }
 
 // MARK: - Achivements
-class Achivements: Codable {
-    let courses: Courses
-    let talks: Talks
-    let extras: Extras
+struct Achivements: Codable {
+    let Courses: Courses
+    let Talks: Talks
+    let Extras: Extras
     let sections: Int
     
-    enum CodingKeys: String, CodingKey {
-        case courses = "Courses"
-        case talks = "Talks"
-        case extras = "Extras"
-        case sections
-    }
-    
-    init(courses: Courses, talks: Talks, extras: Extras, sections: Int) {
-        self.courses = courses
-        self.talks = talks
-        self.extras = extras
+    init(Courses: Courses, Talks: Talks, Extras: Extras, sections: Int) {
+        self.Courses = Courses
+        self.Talks = Talks
+        self.Extras = Extras
         self.sections = sections
     }
 }
 
 // MARK: - Courses
-class Courses: Codable {
-    let titleSection, ciscoCCNA: String
+struct Courses: Codable {
+    let titleSection, CiscoCCNA: String
     let rowsInSection: Int
     
-    enum CodingKeys: String, CodingKey {
-        case titleSection
-        case ciscoCCNA = "CiscoCCNA"
-        case rowsInSection
-    }
-    
-    init(titleSection: String, ciscoCCNA: String, rowsInSection: Int) {
+    init(titleSection: String, CiscoCCNA: String, rowsInSection: Int) {
         self.titleSection = titleSection
-        self.ciscoCCNA = ciscoCCNA
+        self.CiscoCCNA = CiscoCCNA
         self.rowsInSection = rowsInSection
     }
 }
 
 // MARK: - Extras
-class Extras: Codable {
+struct Extras: Codable {
     let titleSection, resume: String
     let rowsInSection: Int
     
@@ -84,7 +67,7 @@ class Extras: Codable {
 }
 
 // MARK: - Talks
-class Talks: Codable {
+struct Talks: Codable {
     let titleSection, talk1, talk2: String
     let rowsInSection: Int
     

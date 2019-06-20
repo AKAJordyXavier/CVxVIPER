@@ -1,7 +1,7 @@
 import Foundation
 
 // MARK: - AboutMeResult
-class AboutMeResult: Codable {
+struct AboutMeResult: Codable {
     let response: Response
     
     init(response: Response) {
@@ -10,40 +10,30 @@ class AboutMeResult: Codable {
 }
 
 // MARK: - Response
-class Response: Codable {
-    let aboutMe: AboutMe
+struct Response: Codable {
+    let AboutMe: AboutMe
     
-    enum CodingKeys: String, CodingKey {
-        case aboutMe = "AboutMe"
-    }
-    
-    init(aboutMe: AboutMe) {
-        self.aboutMe = aboutMe
+    init(AboutMe: AboutMe) {
+        self.AboutMe = AboutMe
     }
 }
 
 // MARK: - AboutMe
-class AboutMe: Codable {
+struct AboutMe: Codable {
     let about, hobbies: About
-    let skills: Skills
+    let Skills: Skills
     let sections: Int
     
-    enum CodingKeys: String, CodingKey {
-        case about, hobbies
-        case skills = "Skills"
-        case sections
-    }
-    
-    init(about: About, hobbies: About, skills: Skills, sections: Int) {
+    init(about: About, hobbies: About, Skills: Skills, sections: Int) {
         self.about = about
         self.hobbies = hobbies
-        self.skills = skills
+        self.Skills = Skills
         self.sections = sections
     }
 }
 
 // MARK: - About
-class About: Codable {
+struct About: Codable {
     let titleSection, text: String
     let rowsInSection: Int
     
@@ -55,7 +45,7 @@ class About: Codable {
 }
 
 // MARK: - Skills
-class Skills: Codable {
+struct Skills: Codable {
     let titleSection, resume: String
     let rowsInSection: Int
     

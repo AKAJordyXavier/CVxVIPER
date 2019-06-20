@@ -18,35 +18,24 @@ class MyCareerResult: Codable {
 
 // MARK: - MyCareerResponse
 class MyCareerResponse: Codable {
-    let myCareer: MyCareer
+    let MyCareer: MyCareer
     
-    enum CodingKeys: String, CodingKey {
-        case myCareer = "MyCareer"
-    }
-    
-    init(myCareer: MyCareer) {
-        self.myCareer = myCareer
+    init(MyCareer: MyCareer) {
+        self.MyCareer = MyCareer
     }
 }
 
 // MARK: - MyCareer
 class MyCareer: Codable {
-    let studies: Studies
-    let currentJob: CurrentJob
-    let lastJob: LastJob
+    let Studies: Studies
+    let CurrentJob: CurrentJob
+    let LastJob: LastJob
     let sections: Int
     
-    enum CodingKeys: String, CodingKey {
-        case studies = "Studies"
-        case currentJob = "CurrentJob"
-        case lastJob = "LastJob"
-        case sections
-    }
-    
-    init(studies: Studies, currentJob: CurrentJob, lastJob: LastJob, sections: Int) {
-        self.studies = studies
-        self.currentJob = currentJob
-        self.lastJob = lastJob
+    init(Studies: Studies, CurrentJob: CurrentJob, LastJob: LastJob, sections: Int) {
+        self.Studies = Studies
+        self.CurrentJob = CurrentJob
+        self.LastJob = LastJob
         self.sections = sections
     }
 }
