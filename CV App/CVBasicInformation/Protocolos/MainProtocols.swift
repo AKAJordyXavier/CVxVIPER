@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+//MARK: - Protocols
 protocol MainViewControllerProtocol: class{
     //Presenter -> View
     func showUserInfo (with user: UserResult)
