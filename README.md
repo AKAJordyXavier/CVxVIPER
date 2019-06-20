@@ -18,8 +18,7 @@ VIPER allows create unit test for every layer of the app, so I tried to test mos
 
 ## Screenshots
 -------
-
-![Main](/Screenshots/UserInfo.png){:height="50%" width="50%"}
+<img src="/Screenshots/UserInfo.pngf" width="400" height="500">
 ![Alert](/Screenshots/Alert.png){:height="50%" width="50%"}
 ![Empty](/Screenshots/EmptyState.png){:height="50%" width="50%"}
 ![AboutMe](/AboutMe/AboutMe.png){:height="50%" width="50%"}
