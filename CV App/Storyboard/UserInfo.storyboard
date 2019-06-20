@@ -62,22 +62,11 @@
                                     <constraint firstAttribute="trailing" secondItem="cTS-Ph-t3i" secondAttribute="trailing" constant="8" id="pnQ-oZ-r10"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZW-lg-CBN" userLabel="BottonContainer">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZW-lg-CBN" userLabel="BottomContainer">
                                 <rect key="frame" x="0.0" y="497" width="320" height="71"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2T-VG-jvO">
-                                        <rect key="frame" x="126" y="19" width="68" height="33"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" title="LinkedIn">
-                                            <color key="titleColor" red="0.89006382230000003" green="0.91374516490000002" blue="0.91360384230000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" red="0.91110092399999998" green="0.23265191909999999" blue="0.1928427815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="71" id="bxZ-Za-3mS"/>
-                                    <constraint firstItem="k2T-VG-jvO" firstAttribute="centerX" secondItem="BZW-lg-CBN" secondAttribute="centerX" id="vzS-aJ-3s6"/>
-                                    <constraint firstItem="k2T-VG-jvO" firstAttribute="centerY" secondItem="BZW-lg-CBN" secondAttribute="centerY" id="xWB-GH-ClY"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKf-6x-bo1">
@@ -224,7 +213,6 @@
                         <outlet property="cellphoneLabel" destination="f3c-VD-zLV" id="HP2-65-Fcn"/>
                         <outlet property="emailLabel" destination="ygT-sR-zjQ" id="Wo0-FD-H97"/>
                         <outlet property="emptyStateView" destination="qwB-rQ-YlO" id="k0Z-Ld-WVc"/>
-                        <outlet property="linkedInButton" destination="k2T-VG-jvO" id="zJy-PQ-LSJ"/>
                         <outlet property="myCareerButton" destination="Gj9-76-yJB" id="Iuh-5H-KrB"/>
                         <outlet property="profileUserImage" destination="2o4-Dz-j7F" id="9eS-fp-qnJ"/>
                         <outlet property="stackview" destination="Fg5-be-Kq2" id="MO9-iM-DnB"/>

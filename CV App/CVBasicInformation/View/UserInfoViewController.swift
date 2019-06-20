@@ -25,7 +25,6 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
     @IBOutlet weak var myCareerButton: UIButton!
     @IBOutlet weak var aboutMeButton: UIButton!
     @IBOutlet weak var achivementsButton: UIButton!
-    @IBOutlet weak var linkedInButton: UIButton!
     @IBOutlet weak var stackview: UIStackView!
     
     @IBOutlet weak var bottomContainer: UIView!
@@ -35,7 +34,6 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
         super.viewDidLoad()
         presenter?.viewDidLoad()
         profileUserImage.layer.cornerRadius = profileUserImage.frame.size.width/2.0
-        linkedInButton.isHidden = true
         
         //Constraints
         profileUserImage.centerYAnchor.constraint(equalTo: view.centerYAnchor)
