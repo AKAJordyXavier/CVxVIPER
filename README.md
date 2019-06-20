@@ -1,4 +1,4 @@
-# CV-App
+# CV App on VIPER
 
 ## What the app does?
 ------
