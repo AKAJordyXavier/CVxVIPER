@@ -32,19 +32,19 @@ class UserRouterTests: XCTestCase{
     }
     
     func testAboutMeVCWhenPresented(){
-        let nv = AboutMeRouter.createModule()
+        let _ = AboutMeRouter.createModule()
         router.pushAboutMe()
         
     }
     
     func testMyCareerVCWhenPresented(){
-        let nv = AboutMeRouter.createModule()
+        let _ = AboutMeRouter.createModule()
         router.pushAboutMe()
         
     }
     
     func testAchivementsVCWhenPresented(){
-        let nv = AboutMeRouter.createModule()
+        let _ = AboutMeRouter.createModule()
         router.pushAboutMe()
         
     }

@@ -20,33 +20,16 @@
                         <color key="separatorColor" red="0.91110092399999998" green="0.23265191909999999" blue="0.1928427815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.91110092399999998" green="0.23265191909999999" blue="0.1928427815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="GenericTableViewCell" rowHeight="69" id="zQy-f9-E38" customClass="GenericTableViewCell" customModule="CV_App" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="UITableViewCell" rowHeight="69" id="zQy-f9-E38">
                                 <rect key="frame" x="0.0" y="28" width="320" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zQy-f9-E38" id="yJz-e8-QEy">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="68.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Sr-bi-ery">
-                                            <rect key="frame" x="16" y="11" width="288" height="47"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
                                     <color key="backgroundColor" red="0.89006382230000003" green="0.91374516490000002" blue="0.91360384230000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstItem="3Sr-bi-ery" firstAttribute="bottom" secondItem="yJz-e8-QEy" secondAttribute="bottomMargin" id="7X4-LF-Sgp"/>
-                                        <constraint firstItem="3Sr-bi-ery" firstAttribute="trailing" secondItem="yJz-e8-QEy" secondAttribute="trailingMargin" id="PV9-L0-wtw"/>
-                                        <constraint firstItem="3Sr-bi-ery" firstAttribute="top" secondItem="yJz-e8-QEy" secondAttribute="topMargin" id="Z6p-f2-4t5"/>
-                                        <constraint firstItem="3Sr-bi-ery" firstAttribute="leading" secondItem="yJz-e8-QEy" secondAttribute="leadingMargin" id="hDC-rC-4hx"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.89006382230000003" green="0.91374516490000002" blue="0.91360384230000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.96857684850000003" green="0.96866267920000004" blue="0.96850520370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <outlet property="textCellLabel" destination="3Sr-bi-ery" id="z6Z-qn-Gr8"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

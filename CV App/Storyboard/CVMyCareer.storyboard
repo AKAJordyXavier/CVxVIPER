@@ -19,32 +19,15 @@
                         <color key="backgroundColor" red="0.91110092399999998" green="0.23265191909999999" blue="0.1928427815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" red="0.91110092399999998" green="0.23265191909999999" blue="0.1928427815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="GenericTableViewCell" rowHeight="83" id="WdS-fo-wN4" customClass="GenericTableViewCell" customModule="CV_App" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="UITableViewCell" rowHeight="83" id="WdS-fo-wN4">
                                 <rect key="frame" x="0.0" y="28" width="414" height="83"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WdS-fo-wN4" id="iyQ-jh-rVp">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="82.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpx-we-qaV">
-                                            <rect key="frame" x="20" y="11" width="374" height="61"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
                                     <color key="backgroundColor" red="0.89006382230000003" green="0.91374516490000002" blue="0.91360384230000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstItem="kpx-we-qaV" firstAttribute="leading" secondItem="iyQ-jh-rVp" secondAttribute="leadingMargin" id="23j-HE-om8"/>
-                                        <constraint firstItem="kpx-we-qaV" firstAttribute="bottom" secondItem="iyQ-jh-rVp" secondAttribute="bottomMargin" id="F3z-qZ-X3H"/>
-                                        <constraint firstItem="kpx-we-qaV" firstAttribute="trailing" secondItem="iyQ-jh-rVp" secondAttribute="trailingMargin" id="Xkx-D6-9XS"/>
-                                        <constraint firstItem="kpx-we-qaV" firstAttribute="top" secondItem="iyQ-jh-rVp" secondAttribute="topMargin" id="xiQ-qE-FQh"/>
-                                    </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.91110092399999998" green="0.23265191909999999" blue="0.1928427815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <outlet property="textCellLabel" destination="kpx-we-qaV" id="IZG-sO-CbG"/>
-                                </connections>
+                                <color key="backgroundColor" red="0.89006382230000003" green="0.91374516490000002" blue="0.91360384230000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>

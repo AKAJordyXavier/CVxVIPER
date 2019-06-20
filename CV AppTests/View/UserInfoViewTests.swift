@@ -23,16 +23,16 @@ class UserInfoViewTest: XCTestCase{
         self.view?.loadView()
         self.view?.viewDidLoad()
         
-        var userNameLabel: UILabel! = UILabel()
-        var ageLabel: UILabel! = UILabel()
-        var emailLabel: UILabel! = UILabel()
-        var cellphoneLabel: UILabel! = UILabel()
-        var profileUserImage: UIImageView!
-        var emptyStateView: UIView!
-        var myCareerButton: UIButton!
-        var aboutMeButton: UIButton!
-        var achivementsButton: UIButton!
-        var linkedInButton: UIButton!
+        var _: UILabel! = UILabel()
+        var _: UILabel! = UILabel()
+        var _: UILabel! = UILabel()
+        var _: UILabel! = UILabel()
+        var _: UIImageView!
+        var _: UIView!
+        var _: UIButton!
+        var _: UIButton!
+        var _: UIButton!
+        var _: UIButton!
         
     }
     
@@ -51,7 +51,7 @@ class UserInfoViewTest: XCTestCase{
     }
     
     func testGenericAlertDisplaySuccess(){
-       let alert = AlertView.instance.showAlert(title: "Error", message: "There was an error loading the information")
+       let _ = AlertView.instance.showAlert(title: "Error", message: "There was an error loading the information")
         
     }
 }
