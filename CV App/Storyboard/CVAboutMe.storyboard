@@ -20,7 +20,7 @@
                         <color key="separatorColor" red="0.91110092399999998" green="0.23265191909999999" blue="0.1928427815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.91110092399999998" green="0.23265191909999999" blue="0.1928427815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AboutMeTableViewCell" rowHeight="69" id="zQy-f9-E38" customClass="AboutMeTableViewCell" customModule="CV_App" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="GenericTableViewCell" rowHeight="69" id="zQy-f9-E38" customClass="GenericTableViewCell" customModule="CV_App" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="69"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zQy-f9-E38" id="yJz-e8-QEy">

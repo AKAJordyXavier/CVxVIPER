@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AboutMeTableViewCell: UITableViewCell {
+class GenericTableViewCell: UITableViewCell {
 
     @IBOutlet weak var textCellLabel: UILabel!
     

@@ -20,7 +20,7 @@
                         <color key="separatorColor" red="0.91110092399999998" green="0.23265191909999999" blue="0.1928427815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.91110092399999998" green="0.23265191909999999" blue="0.1928427815" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AchivementsTableViewCell" rowHeight="89" id="3R3-Eb-akB" customClass="AchivementsTableViewCell" customModule="CV_App" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GenericTableViewCell" rowHeight="89" id="3R3-Eb-akB" customClass="GenericTableViewCell" customModule="CV_App" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="89"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3R3-Eb-akB" id="DgO-e8-ma6">
@@ -43,7 +43,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.89006382230000003" green="0.91374516490000002" blue="0.91360384230000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <outlet property="textCellLabel" destination="fAn-Ng-fL9" id="Rw8-iq-yqm"/>
+                                    <outlet property="textCellLabel" destination="fAn-Ng-fL9" id="Rep-Kc-bgc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

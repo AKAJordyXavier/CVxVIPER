@@ -36,25 +36,25 @@ class AchivementsTableViewController: UITableViewController, AchivementsViewCont
         let alertMessage = NSLocalizedString("There was an error loading", comment: "")
         DispatchQueue.main.sync { [weak self] in
             AlertView.instance.showAlert(title: alertTitle, message: alertMessage)
-            self!.view.addSubview(AlertView.instance.parentView)
+            self?.view.addSubview(AlertView.instance.parentView)
         }
     }
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return achivementsList?.achivementsResponse.achivements.sections ?? 0
+        return achivementsList?.achivementsResponse.Achivements.sections ?? 0
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return achivementsList?.achivementsResponse.achivements.courses.rowsInSection ?? 0
+            return achivementsList?.achivementsResponse.Achivements.Courses.rowsInSection ?? 0
             
         case 1:
-            return achivementsList?.achivementsResponse.achivements.talks.rowsInSection ?? 0
+            return achivementsList?.achivementsResponse.Achivements.Talks.rowsInSection ?? 0
             
         case 2:
-            return achivementsList?.achivementsResponse.achivements.extras.rowsInSection ?? 0
+            return achivementsList?.achivementsResponse.Achivements.Extras.rowsInSection ?? 0
             
         default:
             return 0
@@ -64,34 +64,34 @@ class AchivementsTableViewController: UITableViewController, AchivementsViewCont
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return achivementsList?.achivementsResponse.achivements.courses.titleSection
+            return achivementsList?.achivementsResponse.Achivements.Courses.titleSection
         }
         if section == 1 {
-            return achivementsList?.achivementsResponse.achivements.talks.titleSection
+            return achivementsList?.achivementsResponse.Achivements.Talks.titleSection
         }
         if section == 2 {
-            return achivementsList?.achivementsResponse.achivements.extras.titleSection
+            return achivementsList?.achivementsResponse.Achivements.Extras.titleSection
         }
         
         return "Nil"
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AchivementsTableViewCell", for: indexPath) as! AchivementsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GenericTableViewCell", for: indexPath) as! GenericTableViewCell
         if indexPath.section == 0 {
-            cell.textCellLabel.text = achivementsList?.achivementsResponse.achivements.courses.ciscoCCNA
+            cell.textCellLabel.text = achivementsList?.achivementsResponse.Achivements.Courses.CiscoCCNA
         }
         if indexPath.section == 1 {
             
             if indexPath.row == 0 {
-                 cell.textCellLabel.text = achivementsList?.achivementsResponse.achivements.talks.talk1
+                cell.textCellLabel.text = achivementsList?.achivementsResponse.Achivements.Talks.talk1
             }
             if indexPath.row == 1 {
-                 cell.textCellLabel.text = achivementsList?.achivementsResponse.achivements.talks.talk2
+                cell.textCellLabel.text = achivementsList?.achivementsResponse.Achivements.Talks.talk2
             }
         }
         if indexPath.section == 2 {
-            cell.textCellLabel.text = achivementsList?.achivementsResponse.achivements.extras.resume
+            cell.textCellLabel.text = achivementsList?.achivementsResponse.Achivements.Extras.resume
         }
         
         return cell

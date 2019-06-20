@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 
 class UserInfoViewController: UIViewController, MainViewControllerProtocol {
-    
+    //MARK: - Properties
     var presenter: MainPresenterProtocol?
     var user: UserResult?
     // MARK: - Outlets
@@ -24,7 +24,9 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
     @IBOutlet weak var aboutMeButton: UIButton!
     @IBOutlet weak var achivementsButton: UIButton!
     @IBOutlet weak var linkedInButton: UIButton!
+    @IBOutlet weak var stackview: UIStackView!
     
+    @IBOutlet weak var bottomContainer: UIView!
     // MARK: - Properties
     var linkedInUrl: String?
     var pulseLayers = [CAShapeLayer]()
@@ -35,7 +37,14 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
         presenter?.viewDidLoad()
         profileUserImage.layer.cornerRadius = profileUserImage.frame.size.width/2.0
         linkedInButton.isHidden = true
+        //Constraints
+        profileUserImage.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        let ageLabelConstraint = NSLayoutConstraint(item: ageLabel, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 5)
+        let cellphoneLabelContraint = NSLayoutConstraint(item: cellphoneLabel, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 5)
+        let emailLabelConstraint = NSLayoutConstraint(item: emailLabel, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 5)
+
         
+        self.view.addConstraints([ageLabelConstraint, emailLabelConstraint, cellphoneLabelContraint])
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,9 +60,9 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        profileUserImage.layer.removeAllAnimations()
+      profileUserImage.layer.removeAllAnimations()
     }
-    
+    // MARK: Methods for display information
     //Method for paint all the user basic information from the requesr
     func showUserInfo(with user: UserResult) {
         let userInfo = user.response.userInfo
@@ -73,9 +82,9 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
     }
     
     func imageWithData(data: Data){
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
             let image = UIImage(data: data)
-            self.profileUserImage.image = image
+            self?.profileUserImage.image = image
         }
     }
     
@@ -83,11 +92,12 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
         let alertTitle = NSLocalizedString("Error", comment: "")
         let alertMessage = NSLocalizedString("There was an error loading the information", comment: "")
         DispatchQueue.main.sync { [weak self] in
-            self!.emptyStateView.isHidden = false
+            self?.emptyStateView.isHidden = false
             AlertView.instance.showAlert(title: alertTitle, message: alertMessage)
-            self!.view.addSubview(AlertView.instance.parentView)
+            self?.view.addSubview(AlertView.instance.parentView)
         }
     }
+    //MARK: - Animation methods
     //Method for animated the pulse
     func animatePulse(index: Int){
         pulseLayers[index].strokeColor = UIColor.white.cgColor

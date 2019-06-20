@@ -14,7 +14,7 @@ class MockMainOutputIntercator: MainOutputIntercatorProtocol{
     private(set) var user: UserResult?
     private(set) var getUserInfoSuccessCalled = 0
     private(set) var getUserInfoFailCalled = 0
-    
+    private(set) var getImageCalled = 0
      func userFeteched(user: UserResult) {
         self.user = user
         self.getUserInfoSuccessCalled += 1
@@ -24,5 +24,8 @@ class MockMainOutputIntercator: MainOutputIntercatorProtocol{
         self.getUserInfoFailCalled += 1
     }
     
+    func dowloadedImage(_ data: Data) {
+        self.getImageCalled += 1
+    }
     
 }

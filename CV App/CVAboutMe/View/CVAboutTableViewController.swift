@@ -34,25 +34,25 @@ class CVAboutTableViewController: UITableViewController, AboutMeViewControllerPr
         let alertMessage = NSLocalizedString("There was an error loading the user information", comment: "")
         DispatchQueue.main.sync { [weak self] in
             AlertView.instance.showAlert(title: alertTitle, message: alertMessage)
-            self!.view.addSubview(AlertView.instance.parentView)
+            self?.view.addSubview(AlertView.instance.parentView)
         }
     }
     
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return aboutMeList?.response.aboutMe.sections ?? 0
+        return aboutMeList?.response.AboutMe.sections ?? 0
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return aboutMeList?.response.aboutMe.about.rowsInSection ?? 0
+            return aboutMeList?.response.AboutMe.about.rowsInSection ?? 0
             
         case 1:
-            return aboutMeList?.response.aboutMe.hobbies.rowsInSection ?? 0
+            return aboutMeList?.response.AboutMe.hobbies.rowsInSection ?? 0
             
         case 2:
-            return aboutMeList?.response.aboutMe.skills.rowsInSection ?? 0
+            return aboutMeList?.response.AboutMe.Skills.rowsInSection ?? 0
             
         default:
             return 0
@@ -61,27 +61,27 @@ class CVAboutTableViewController: UITableViewController, AboutMeViewControllerPr
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0{
-            return aboutMeList?.response.aboutMe.about.titleSection
+            return aboutMeList?.response.AboutMe.about.titleSection
         }
         if section == 1{
-            return aboutMeList?.response.aboutMe.hobbies.titleSection
+            return aboutMeList?.response.AboutMe.hobbies.titleSection
         }
         if section == 2{
-            return aboutMeList?.response.aboutMe.skills.titleSection
+            return aboutMeList?.response.AboutMe.Skills.titleSection
         }
         return "Nil"
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AboutMeTableViewCell", for: indexPath) as! AboutMeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GenericTableViewCell", for: indexPath) as! GenericTableViewCell
         if indexPath.section == 0{
-            cell.textCellLabel.text = aboutMeList?.response.aboutMe.about.text
+            cell.textCellLabel.text = aboutMeList?.response.AboutMe.about.text
         }
         if indexPath.section == 1{
-            cell.textCellLabel.text = aboutMeList?.response.aboutMe.hobbies.text
+            cell.textCellLabel.text = aboutMeList?.response.AboutMe.hobbies.text
         }
         if indexPath.section == 2{
-            cell.textCellLabel.text = aboutMeList?.response.aboutMe.skills.resume
+            cell.textCellLabel.text = aboutMeList?.response.AboutMe.Skills.resume
         }
         return cell 
         
