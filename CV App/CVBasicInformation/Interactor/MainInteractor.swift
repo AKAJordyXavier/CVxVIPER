@@ -20,7 +20,7 @@ class MainInteractor: MainInputIntercatorProtocol{
             switch fetchResult{
             case .success(let data):
                 let userFetch: UserResult? = Request.shared.jsonDecode(data: data)
-                guard  let user = userFetch, let result = self?.presenter?.userFeteched(user: user) else{
+                guard  let user = userFetch, let _ = self?.presenter?.userFeteched(user: user) else{
                     self?.presenter?.userFetchFailed()
                     return
                 }

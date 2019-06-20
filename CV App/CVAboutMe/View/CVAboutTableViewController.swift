@@ -73,15 +73,17 @@ class CVAboutTableViewController: UITableViewController, AboutMeViewControllerPr
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GenericTableViewCell", for: indexPath) as! GenericTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        cell.textLabel?.lineBreakMode = .byWordWrapping
+        cell.textLabel?.numberOfLines = 0
         if indexPath.section == 0{
-            cell.textCellLabel.text = aboutMeList?.response.AboutMe.about.text
+            cell.textLabel?.text = aboutMeList?.response.AboutMe.about.text
         }
         if indexPath.section == 1{
-            cell.textCellLabel.text = aboutMeList?.response.AboutMe.hobbies.text
+            cell.textLabel?.text = aboutMeList?.response.AboutMe.hobbies.text
         }
         if indexPath.section == 2{
-            cell.textCellLabel.text = aboutMeList?.response.AboutMe.Skills.resume
+            cell.textLabel?.text = aboutMeList?.response.AboutMe.Skills.resume
         }
         return cell 
         

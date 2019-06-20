@@ -13,6 +13,8 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
     //MARK: - Properties
     var presenter: MainPresenterProtocol?
     var user: UserResult?
+    var linkedInUrl: String?
+    var pulseLayers = [CAShapeLayer]()
     // MARK: - Outlets
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
@@ -27,23 +29,21 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
     @IBOutlet weak var stackview: UIStackView!
     
     @IBOutlet weak var bottomContainer: UIView!
-    // MARK: - Properties
-    var linkedInUrl: String?
-    var pulseLayers = [CAShapeLayer]()
-    
+   
     //MARK: - Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
         profileUserImage.layer.cornerRadius = profileUserImage.frame.size.width/2.0
         linkedInButton.isHidden = true
+        
         //Constraints
         profileUserImage.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         let ageLabelConstraint = NSLayoutConstraint(item: ageLabel, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 5)
         let cellphoneLabelContraint = NSLayoutConstraint(item: cellphoneLabel, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 5)
         let emailLabelConstraint = NSLayoutConstraint(item: emailLabel, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 5)
 
-        
+        //Add constraints
         self.view.addConstraints([ageLabelConstraint, emailLabelConstraint, cellphoneLabelContraint])
     }
     
@@ -63,6 +63,7 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
       profileUserImage.layer.removeAllAnimations()
     }
     // MARK: Methods for display information
+    
     //Method for paint all the user basic information from the requesr
     func showUserInfo(with user: UserResult) {
         let userInfo = user.response.userInfo
@@ -81,6 +82,7 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
         }
     }
     
+    //Create the image by a data
     func imageWithData(data: Data){
         DispatchQueue.main.async { [weak self] in
             let image = UIImage(data: data)
@@ -88,6 +90,7 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
         }
     }
     
+    // Create the aler for a error
     func showNetworkingError() {
         let alertTitle = NSLocalizedString("Error", comment: "")
         let alertMessage = NSLocalizedString("There was an error loading the information", comment: "")
@@ -98,6 +101,7 @@ class UserInfoViewController: UIViewController, MainViewControllerProtocol {
         }
     }
     //MARK: - Animation methods
+    
     //Method for animated the pulse
     func animatePulse(index: Int){
         pulseLayers[index].strokeColor = UIColor.white.cgColor

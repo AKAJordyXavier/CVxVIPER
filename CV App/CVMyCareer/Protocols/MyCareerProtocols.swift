@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+//MARK: - Protocols
 protocol MyCareerViewControllerProtocol: class{
     //Presenter -> View
     func showMyCareer (with myCareer:  MyCareerResult)

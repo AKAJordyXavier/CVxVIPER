@@ -22,7 +22,7 @@ class AchivementsInteractor: AchivementsInputIntercatorProtocol{
             switch fetchResult{
             case .success(let data):
                 let achivementsFetch: AchivementsResult? = Request.shared.jsonDecode(data: data)
-                guard let result = self?.presenter?.achivementsFeteched(achivements: achivementsFetch!) else{
+                guard let _ = self?.presenter?.achivementsFeteched(achivements: achivementsFetch!) else{
                     self?.presenter?.userFetchFailed()
                     return
                 }

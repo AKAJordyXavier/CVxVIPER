@@ -7,9 +7,9 @@
 //
 
 import Foundation
-
 import UIKit
 
+//MARK: - Protocols
 protocol AchivementsViewControllerProtocol: class{
     //Presenter -> View
     func showAchivements (with achivements: AchivementsResult)

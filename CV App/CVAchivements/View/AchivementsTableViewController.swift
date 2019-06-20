@@ -77,21 +77,24 @@ class AchivementsTableViewController: UITableViewController, AchivementsViewCont
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GenericTableViewCell", for: indexPath) as! GenericTableViewCell
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        cell.textLabel?.lineBreakMode = .byWordWrapping
+        cell.textLabel?.numberOfLines = 0
         if indexPath.section == 0 {
-            cell.textCellLabel.text = achivementsList?.achivementsResponse.Achivements.Courses.CiscoCCNA
+            cell.textLabel?.text = achivementsList?.achivementsResponse.Achivements.Courses.CiscoCCNA
         }
         if indexPath.section == 1 {
             
             if indexPath.row == 0 {
-                cell.textCellLabel.text = achivementsList?.achivementsResponse.Achivements.Talks.talk1
+                cell.textLabel?.text = achivementsList?.achivementsResponse.Achivements.Talks.talk1
             }
             if indexPath.row == 1 {
-                cell.textCellLabel.text = achivementsList?.achivementsResponse.Achivements.Talks.talk2
+               cell.textLabel?.text = achivementsList?.achivementsResponse.Achivements.Talks.talk2
             }
         }
         if indexPath.section == 2 {
-            cell.textCellLabel.text = achivementsList?.achivementsResponse.Achivements.Extras.resume
+            cell.textLabel?.text = achivementsList?.achivementsResponse.Achivements.Extras.resume
         }
         
         return cell

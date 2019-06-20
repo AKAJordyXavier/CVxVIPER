@@ -78,15 +78,18 @@ class MyCareerTableViewController: UITableViewController, MyCareerViewController
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GenericTableViewCell", for: indexPath) as! GenericTableViewCell
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        cell.textLabel?.lineBreakMode = .byWordWrapping
+        cell.textLabel?.numberOfLines = 0
         if indexPath.section == 0{
-            cell.textCellLabel.text = myCareerMeList?.myCareerResponse.MyCareer.Studies.studie
+            cell.textLabel?.text = myCareerMeList?.myCareerResponse.MyCareer.Studies.studie
         }
         if indexPath.section == 1{
-            cell.textCellLabel.text = myCareerMeList?.myCareerResponse.MyCareer.CurrentJob.text
+            cell.textLabel?.text = myCareerMeList?.myCareerResponse.MyCareer.CurrentJob.text
         }
         if indexPath.section == 2{
-            cell.textCellLabel.text = myCareerMeList?.myCareerResponse.MyCareer.LastJob.resume
+            cell.textLabel?.text = myCareerMeList?.myCareerResponse.MyCareer.LastJob.resume
         }
         
         return cell

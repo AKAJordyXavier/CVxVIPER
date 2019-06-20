@@ -39,6 +39,7 @@ class Request {
     }
     
     // MARK: - Initialazers
+    
     /// The init for the base URL
     ///
     /// - Parameter baseURL: URL base for the appi's request
@@ -47,11 +48,12 @@ class Request {
     }
     
     // MARK: - Methods
+    
     /// This method allows to make the request to a especific URL with components sendings by the extension URL on the top.
     ///
     /// - Parameters:
-    ///   - queries: The queries of the URL, the key of the dictionary never gonna change
-    ///   - petition: The kind of request GET
+    ///   - endpoint: The URL endpoints for make the request
+    ///   - entity: The entity need it for test de data fetech
     ///   - completionHandler: This completion handler recive a result compose by a data and a case of the NetworkinErrors enum and return a void
     func request<T:Codable>(_ endpoint: String, entity: T.Type, completionHandler: @escaping (Result<Data, NetworkingErrors>) -> Void){
         let url = baseURL.appendingPathComponent(endpoint) 
@@ -71,6 +73,11 @@ class Request {
     }
     
     
+    /// Method for download de image by a URL an create data
+    ///
+    /// - Parameters:
+    ///   - urlImage: The URL image
+    ///   - completionHandler: Completion handler
     func downloadImage(urlImage: String, completionHandler: @escaping (Result<Data, NetworkingErrors>) -> Void){
         guard let url = URL(string: urlImage) else {
             completionHandler(.failure(.invalidRequest))
